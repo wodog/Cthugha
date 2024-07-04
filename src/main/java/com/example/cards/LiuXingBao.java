@@ -4,6 +4,7 @@ import com.example.actions.YanBaoAction;
 import com.example.enums.AbstractCardEnum;
 import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
+import com.example.helpers.StaticHelper;
 import com.example.orbs.YanZhiJing;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -43,7 +44,7 @@ public class LiuXingBao extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         this.exhaust = true;
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 8;
         this.magicNumber = this.baseMagicNumber = 1;
 
         this.tags.add(CustomTags.Yan_Bao);
@@ -74,38 +75,50 @@ public class LiuXingBao extends CustomCard {
         }
         int count = effect;
 
+        LiuXingBao self = this;
         this.addToBot(new YanBaoAction(this, new AbstractGameAction() {
             public void update() {
-                for (int i = 0; i < count; i++) {
-                    this.addToTop(new DamageAllEnemiesAction(p, 20, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-                }
+                // for (int i = 0; i < count; i++) {
+                //     this.addToTop(new DamageAllEnemiesAction(p, 20, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                // }
+                self.damage *= 3;
                 this.isDone = true;
             }
         }));
 
-
-        for (int i = 0; i < count; i++) {
-            this.addToBot(new DamageAllEnemiesAction(p, 5, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        }
-        for (int i = 0; i < count; i++) {
-            this.addToBot(new ChannelAction(new YanZhiJing()));
-        }
-
-
+        this.addToBot( new AbstractGameAction() {
+            public void update() {
+                for (int i = 0; i < count; i++) {
+                    this.addToBot(new DamageAllEnemiesAction(p, self.damage, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                }
+                for (int i = 0; i < count; i++) {
+                    this.addToBot(new ChannelAction(new YanZhiJing()));
+                }
+        
+                this.isDone = true;
+            }
+        });
+        
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
         }
+
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         super.canUse(p, m);
 
-        // EnergyPanel.totalCount: 面板的能量
-        // p.energy.energy: 实际的能量
-        if (EnergyPanel.totalCount == p.energy.energy) {
+        if (StaticHelper.usedEnergy == 0) {
             return true;
         }
         return false;
+
+        // // EnergyPanel.totalCount: 面板的能量
+        // // p.energy.energy: 实际的能量
+        // if (EnergyPanel.totalCount == p.energy.energy) {
+        //     return true;
+        // }
+        // return false;
     }
 
 }

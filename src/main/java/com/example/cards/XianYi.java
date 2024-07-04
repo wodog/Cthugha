@@ -5,6 +5,7 @@ import com.example.enums.AbstractCardEnum;
 import com.example.helpers.ModHelper;
 import com.example.orbs.YanZhiJing;
 import com.example.power.RiShiPower;
+import com.example.power.XianYiPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -70,32 +71,25 @@ public class XianYi extends AbstractShunRanCard {
                 }
                 this.isDone = true;
             }
-
         });
 
-        boolean havePlayedOtherCard = false;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            if (c == this) {
-                havePlayedOtherCard = false;
-                continue;
-            } else {
-                havePlayedOtherCard = true;
-                break;
-            }
-        }
-        if (!havePlayedOtherCard) {
-            this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1)));
-        }
+        this.addToBot(new ApplyPowerAction(p, p, new XianYiPower(p, 1)));
+
     }
 
     @Override
     protected void doShunRan(int size) {
-        
         if (size >= 8) {
-            int toDraw = 10 - AbstractDungeon.player.hand.size();
-            if (toDraw > 0) {
-                this.addToTop(new DrawCardAction(AbstractDungeon.player, toDraw));
-            }
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    int toDraw = 10 - AbstractDungeon.player.hand.size();
+                    if (toDraw > 0) {
+                        this.addToTop(new DrawCardAction(AbstractDungeon.player, toDraw));
+                    }
+                    this.isDone = true;
+                }
+            });
 
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new IntangiblePlayerPower(AbstractDungeon.player, 1)));

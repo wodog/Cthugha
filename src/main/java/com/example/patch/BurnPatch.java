@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.example.power.FenJiPower;
 import com.example.power.TaoHuoShiYanPower;
 import com.example.relics.HuoTiHuoYan;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BurnPatch {
 
@@ -46,7 +48,13 @@ public class BurnPatch {
     @SpirePatch(clz = Burn.class, method = "use", paramtypez = { AbstractPlayer.class, AbstractMonster.class })
     public static class Renpi_player {
         public static void Replace(AbstractCard _inst, AbstractPlayer p, AbstractMonster m) {
-            if (_inst.type == CardType.ATTACK) {
+            if (AbstractDungeon.player.hasPower(FenJiPower.POWER_ID)) {
+                AbstractPower power = AbstractDungeon.player.getPower(FenJiPower.POWER_ID);
+                _inst.magicNumber += power.amount;
+                power.flash();
+            }
+
+            if (_inst.type == CardType.ATTACK) { // 攻击牌
                 if (AbstractDungeon.player.hasRelic(HuoTiHuoYan.ID)) {
                     _inst.magicNumber += 3;
                 }
@@ -55,8 +63,7 @@ public class BurnPatch {
                                 new DamageInfo(AbstractDungeon.player, _inst.magicNumber,
                                         DamageInfo.DamageType.NORMAL),
                                 AbstractGameAction.AttackEffect.NONE));
-            } else {
-
+            } else { // 自动打出
                 if (_inst.dontTriggerOnUseCard) {
                     if (AbstractDungeon.player.hasRelic(HuoTiHuoYan.ID)) {
                         _inst.magicNumber += 3;

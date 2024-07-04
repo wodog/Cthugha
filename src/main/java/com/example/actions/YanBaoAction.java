@@ -3,12 +3,16 @@ package com.example.actions;
 import java.util.Iterator;
 
 import com.example.Cthugha_Core;
+import com.example.cards.FenJi;
 import com.example.enums.CustomTags;
+import com.example.helpers.StaticHelper;
 import com.example.orbs.YanZhiJing;
+import com.example.power.FenJiPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class YanBaoAction extends AbstractGameAction {
 
@@ -33,6 +37,16 @@ public class YanBaoAction extends AbstractGameAction {
 
     // 是否能 炎爆
     private boolean canYanBao() {
+        // 焚寂效果
+        if (!(card instanceof FenJi)) {
+            if (AbstractDungeon.player.hasPower(FenJiPower.POWER_ID)) {
+                AbstractPower power = AbstractDungeon.player.getPower(FenJiPower.POWER_ID);
+                power.flash();
+                return false;
+            }
+        }
+
+        // 满足炎之精数量
         int matchNums = 0;
         int size = AbstractDungeon.player.orbs.size();
         for (int i = 0; i < size; i++) {
@@ -41,19 +55,7 @@ public class YanBaoAction extends AbstractGameAction {
                 matchNums++;
             }
         }
-
-        // Iterator<AbstractOrb> orbs = AbstractDungeon.player.orbs.iterator();
-        // while (orbs.hasNext()) {
-        // AbstractOrb orb = orbs.next();
-        // System.out.println("===========================" + orb.ID);
-        // CTHUGHA_Core.logger.info("info");
-        // if (orb.ID == YanZhiJing.ORB_ID) {
-        // flag = true;
-        // } else {
-        // return false;
-        // }
-        // }
-        if (matchNums >= 6) {
+        if (matchNums >= StaticHelper.canBaoYanNums) {
             return true;
         }
         return false;

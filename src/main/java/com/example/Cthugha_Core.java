@@ -12,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.example.cards.*;
 import com.example.characters.Cthugha;
 import com.example.enums.*;
+import com.example.helpers.StaticHelper;
 import com.example.relics.HuoTiHuoYan;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -25,6 +26,7 @@ import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
@@ -34,6 +36,7 @@ import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.OnStartBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 
 import static com.megacrit.cardcrawl.core.Settings.language;
@@ -41,7 +44,7 @@ import com.google.gson.Gson;
 
 @SpireInitializer
 public class Cthugha_Core
-        implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber  {
+        implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, OnStartBattleSubscriber  {
 
     public static final Logger logger = LogManager.getLogger(Cthugha_Core.class.getName());
 
@@ -149,6 +152,11 @@ public class Cthugha_Core
                 BaseMod.addKeyword("cthugha:", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room) {
+        StaticHelper.resetvaluesAtBattleStart();
     }
 
 }

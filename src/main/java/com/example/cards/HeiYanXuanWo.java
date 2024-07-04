@@ -24,7 +24,7 @@ public class HeiYanXuanWo extends CustomCard {
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    private static final String IMG_PATH = "cthughaResources/img/card/080.png";
+    private static final String IMG_PATH = "cthughaResources/img/card/129.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;;
@@ -35,6 +35,7 @@ public class HeiYanXuanWo extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         this.magicNumber = this.baseMagicNumber = 2;
+        this.damage = this.baseDamage = 4;
     }
 
     @Override
@@ -51,7 +52,7 @@ public class HeiYanXuanWo extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < this.magicNumber; i++) {
-            this.addToBot(new DamageAction(m, new DamageInfo(p, 4, this.damageTypeForTurn),
+            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                     AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
         int layer = 17;
