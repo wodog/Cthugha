@@ -32,14 +32,14 @@ public class HuoYanHuXi extends AbstractShunRanCard {
     public HuoYanHuXi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
-    
+
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            
+
             this.selfRetain = true;
         }
     }
@@ -76,6 +76,9 @@ public class HuoYanHuXi extends AbstractShunRanCard {
             changeBurnAttackTypeCardsInGroup(AbstractDungeon.player.drawPile);
             changeBurnAttackTypeCardsInGroup(AbstractDungeon.player.discardPile);
             changeBurnAttackTypeCardsInGroup(AbstractDungeon.player.exhaustPile);
+
+            CardCrawlGame.music.fadeOutTempBGM();
+            CardCrawlGame.music.playTempBgmInstantly("Cthugha-USAO.mp3");
         }
     }
 }

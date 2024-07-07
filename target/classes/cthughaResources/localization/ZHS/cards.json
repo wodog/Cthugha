@@ -343,6 +343,21 @@
         "NAME": "焚寂",
         "DESCRIPTION": "生成1个 cthugha:炎之精 。 NL cthugha:爆炎 ：本次战斗中 灼伤 造成的伤害增加 !M! ，你不能再触发除此以外的 cthugha:爆炎 效果。",
         "UPGRADE_DESCRIPTION": "生成1个 cthugha:炎之精 。 NL cthugha:爆炎 ：本次战斗中 灼伤 造成的伤害增加 !M! ，你不能再触发除此以外的 cthugha:爆炎 效果。"
+    },
+    "Cthugha:FuZhuoShangHuan": {
+        "NAME": "复灼伤还",
+        "DESCRIPTION": "造成 !D! 点伤害。以此牌 cthugha:瞬燃 时视为 cthugha:瞬燃 !M! 。 NL 被 消耗 时若数值大于2，将其一张数值-2的复制品放回手牌。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。以此牌 cthugha:瞬燃 时视为 cthugha:瞬燃 !M! 。 NL 被 消耗 时若数值大于2，将其一张数值-2的复制品放回手牌。"
+    },
+    "Cthugha:ChangZhou": {
+        "NAME": "长昼",
+        "DESCRIPTION": " 不能被打出 。 NL cthugha:瞬燃 0：抽3张牌，抽到的牌本回合耗能+2。",
+        "UPGRADE_DESCRIPTION": "cthugha:瞬燃 0：抽3张牌，抽到的牌本回合耗能+2。"
+    },
+    "Cthugha:DaiShiYueLuo": {
+        "NAME": "带食月落",
+        "DESCRIPTION": "如果你的手牌耗能之和（包括这张牌）大于等于 !M! ，本回合这些牌的耗能变为0。",
+        "UPGRADE_DESCRIPTION": "如果你的手牌耗能之和（包括这张牌）大于等于 !M! ，本回合这些牌的耗能变为0。"
     }
     
     

@@ -50,10 +50,26 @@ public abstract class AbstractShunRanCard extends AbstractRightClickCard {
                         new SelectCardsInHandAction(10, uiStrings.TEXT[0], true, true,
                                 card -> ModHelper.IsBurnCard(card),
                                 abstractCards -> {
+                                    int count = abstractCards.size();
+
+                                    // 存在 复灼伤还 的情况
+                                    int fuZhuoShangHuanCount = 0;
+                                    for (AbstractCard card : abstractCards) {
+                                        if (card.cardID == FuZhuoShangHuan.ID) {
+                                            if (card.magicNumber > fuZhuoShangHuanCount) {
+                                                fuZhuoShangHuanCount = card.magicNumber;
+                                            }
+                                        }
+                                    }
+                                    if (fuZhuoShangHuanCount != 0) {
+                                        count = fuZhuoShangHuanCount;
+                                    }
+
                                     for (AbstractCard card : abstractCards) {
                                         addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
                                     }
-                                    doShunRan(abstractCards.size());
+
+                                    doShunRan(count);
                                 }));
             }
 
