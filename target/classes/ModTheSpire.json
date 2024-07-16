@@ -3,7 +3,7 @@
   "name": "Cthugha（克图格亚）",
   "author_list": ["橘子皮皮哥", "谔谔"],
   "description": "由炎之精侍奉的被称为火焰之主的旧日支配者",
-  "version": "0.0.25",
+  "version": "0.0.27",
   "sts_version": "12-18-2022",
   "mts_version": "3.23.2",
   "dependencies": ["basemod", "stslib"]

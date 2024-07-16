@@ -43,7 +43,7 @@ public class FenJi extends CustomCard {
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = AbstractCard.CardTarget.NONE;
 
     public FenJi() {

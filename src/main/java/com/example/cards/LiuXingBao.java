@@ -43,7 +43,6 @@ public class LiuXingBao extends CustomCard {
     public LiuXingBao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-        this.exhaust = true;
         this.damage = this.baseDamage = 8;
         this.magicNumber = this.baseMagicNumber = 1;
 

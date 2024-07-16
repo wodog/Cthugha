@@ -75,9 +75,9 @@ public class ChongRanLieHuo extends AbstractShunRanCard {
         }
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
+    // public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+    //     return false;
+    // }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
     }

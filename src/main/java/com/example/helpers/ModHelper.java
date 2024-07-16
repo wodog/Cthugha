@@ -2,7 +2,9 @@ package com.example.helpers;
 
 import com.example.cards.FuZhuoShangHuan;
 import com.example.enums.CustomTags;
+import com.example.relics.LieSiTaShuJian;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ModHelper {
     public static String MakePath(String id) {
@@ -16,7 +18,8 @@ public class ModHelper {
 
     // 灼伤牌
     public static boolean IsBurnCard(AbstractCard card) {
-        return card.cardID == "Burn" || card.hasTag(CustomTags.Burn_Card);
+        return card.cardID == "Burn" || card.hasTag(CustomTags.Burn_Card)
+                || AbstractDungeon.player.hasRelic(LieSiTaShuJian.ID);
     }
 
     // 打击牌

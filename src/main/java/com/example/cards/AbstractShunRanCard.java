@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
 import com.example.orbs.YanZhiJing;
+import com.example.relics.LieSiTaShuJian;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -43,35 +44,41 @@ public abstract class AbstractShunRanCard extends AbstractRightClickCard {
         if (!this.hasTag(CustomTags.Shun_Ran_Triggered) && AbstractDungeon.player != null) {
             this.tags.add(CustomTags.Shun_Ran_Triggered);
 
-            if (AbstractDungeon.player.hand.findCardById("Burn") == null) {
-                doShunRan(0);
-            } else {
-                this.addToBot(
-                        new SelectCardsInHandAction(10, uiStrings.TEXT[0], true, true,
-                                card -> ModHelper.IsBurnCard(card),
-                                abstractCards -> {
-                                    int count = abstractCards.size();
+            // if (AbstractDungeon.player.hand.findCardById("Burn") == null) {
+            // doShunRan(0);
+            // } else {
+            this.addToBot(
+                    new SelectCardsInHandAction(10, uiStrings.TEXT[0], true, true,
+                            card -> ModHelper.IsBurnCard(card),
+                            abstractCards -> {
+                                int count = abstractCards.size();
 
-                                    // 存在 复灼伤还 的情况
-                                    int fuZhuoShangHuanCount = 0;
-                                    for (AbstractCard card : abstractCards) {
-                                        if (card.cardID == FuZhuoShangHuan.ID) {
-                                            if (card.magicNumber > fuZhuoShangHuanCount) {
-                                                fuZhuoShangHuanCount = card.magicNumber;
-                                            }
+                                // 存在 复灼伤还 的情况
+                                int fuZhuoShangHuanCount = 0;
+                                for (AbstractCard card : abstractCards) {
+                                    if (card.cardID == FuZhuoShangHuan.ID) {
+                                        if (card.magicNumber > fuZhuoShangHuanCount) {
+                                            fuZhuoShangHuanCount = card.magicNumber;
                                         }
                                     }
-                                    if (fuZhuoShangHuanCount != 0) {
-                                        count = fuZhuoShangHuanCount;
-                                    }
+                                }
+                                if (fuZhuoShangHuanCount != 0) {
+                                    count = fuZhuoShangHuanCount;
+                                }
 
-                                    for (AbstractCard card : abstractCards) {
-                                        addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
-                                    }
+                                for (AbstractCard card : abstractCards) {
+                                    addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
+                                }
 
-                                    doShunRan(count);
-                                }));
-            }
+                                if (AbstractDungeon.player.hasRelic(LieSiTaShuJian.ID)) {
+                                    if (count > 7) {
+                                        count = 7;
+                                    }
+                                }
+
+                                doShunRan(count);
+                            }));
+            // }
 
         }
     }

@@ -5,9 +5,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.example.actions.DecreaseMonsterMaxHealthAction;
 import com.example.power.FenJiPower;
 import com.example.power.TaoHuoShiYanPower;
 import com.example.relics.HuoTiHuoYan;
+import com.example.relics.ShengLingLieYan;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
@@ -53,11 +55,14 @@ public class BurnPatch {
                 _inst.magicNumber += power.amount;
                 power.flash();
             }
+            if (AbstractDungeon.player.hasRelic(HuoTiHuoYan.ID)) {
+                _inst.magicNumber += 3;
+            }
+            if (AbstractDungeon.player.hasRelic(ShengLingLieYan.ID)) {
+                _inst.magicNumber += 8;
+            }
 
             if (_inst.type == CardType.ATTACK) { // 攻击牌
-                if (AbstractDungeon.player.hasRelic(HuoTiHuoYan.ID)) {
-                    _inst.magicNumber += 3;
-                }
                 AbstractDungeon.actionManager.addToBottom(
                         new DamageAction(m,
                                 new DamageInfo(AbstractDungeon.player, _inst.magicNumber,
@@ -66,12 +71,16 @@ public class BurnPatch {
             } else { // 自动打出
                 if (_inst.dontTriggerOnUseCard) {
                     if (AbstractDungeon.player.hasRelic(HuoTiHuoYan.ID)) {
-                        _inst.magicNumber += 3;
                         AbstractDungeon.actionManager.addToBottom(
                                 new DamageRandomEnemyAction(
                                         new DamageInfo(AbstractDungeon.player, _inst.magicNumber,
                                                 DamageInfo.DamageType.THORNS),
                                         AbstractGameAction.AttackEffect.FIRE));
+                    } else if (AbstractDungeon.player.hasRelic(ShengLingLieYan.ID)) {
+                        AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                        if (monster != null) {
+                            AbstractDungeon.actionManager.addToBottom(new DecreaseMonsterMaxHealthAction(monster, _inst.magicNumber));
+                        }
                     } else {
                         AbstractDungeon.actionManager
                                 .addToBottom(new DamageAction(AbstractDungeon.player,

@@ -43,7 +43,7 @@ public class BaoRan extends AbstractShunRanCard {
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final String IMG_PATH = "cthughaResources/img/card/111.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -52,7 +52,7 @@ public class BaoRan extends AbstractShunRanCard {
     public BaoRan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class BaoRan extends AbstractShunRanCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(p, 2));
+        this.addToBot(new GainEnergyAction(1));
     }
 
     @Override

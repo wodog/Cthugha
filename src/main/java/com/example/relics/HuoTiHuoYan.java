@@ -13,7 +13,7 @@ public class HuoTiHuoYan extends CustomRelic {
     // 遗物ID
     public static final String ID = ModHelper.MakePath(HuoTiHuoYan.class.getSimpleName());
     // 图片路径
-    private static final String IMG_PATH = "cthughaResources/img/flame.png";
+    private static final String IMG_PATH = "cthughaResources/img/relics/活体火焰.png";
     // 遗物类型
     private static final RelicTier RELIC_TIER = RelicTier.STARTER;
     // 点击音效

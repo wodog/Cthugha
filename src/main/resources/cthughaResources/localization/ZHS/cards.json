@@ -35,7 +35,7 @@
         "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 给予22层 cthugha:黑焰 。"
     },
     "Cthugha:TaiYangHeiZi": {
-        "NAME": "太阳黑子",
+        "NAME": "太阳耀斑",
         "DESCRIPTION": "造成 !D! 点伤害。你每有一个 cthugha:炎之精 ，再依次造成+1点伤害。",
         "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。你每有一个 cthugha:炎之精 ，再依次造成+1点伤害。"
     },
@@ -76,8 +76,8 @@
     },
     "Cthugha:YiChiRuXi": {
         "NAME": "一赤如烍",
-        "DESCRIPTION": " 不能被打出 。 NL 拾起时，从牌组随机移除 !M! 张 灼伤 。当你抽到这张牌时，在你的手牌中加入 !M! 张 灼伤 ，然后 消耗 。",
-        "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 拾起时，从牌组随机移除 !M! 张 灼伤 。当你抽到这张牌时，在你的手牌中加入 !M! 张 灼伤 ，然后 消耗 。"
+        "DESCRIPTION": "拾起时，从牌组随机移除 !M! 张 灼伤 。当你抽到这张牌时，在你的手牌中加入 !M! 张 灼伤 ，然后 消耗 。",
+        "UPGRADE_DESCRIPTION": "拾起时，从牌组随机移除 !M! 张 灼伤 。当你抽到这张牌时，在你的手牌中加入 !M! 张 灼伤 ，然后 消耗 。"
     },
     "Cthugha:BeiLuoShiMenXieDing": {
         "NAME": "北落师门协定",
@@ -166,8 +166,8 @@
     },
     "Cthugha:BaoRan": {
         "NAME": "爆燃",
-        "DESCRIPTION": "抽2张牌。 NL cthugha:瞬燃 1：获得 [E] [E] 。",
-        "UPGRADE_DESCRIPTION": "抽2张牌。 NL cthugha:瞬燃 1：获得 [E] [E] [E] 。"
+        "DESCRIPTION": "获得 [E] 。 NL cthugha:瞬燃 1：获得 [E] 。",
+        "UPGRADE_DESCRIPTION": "获得 [E] 。 NL cthugha:瞬燃 1：获得 [E] [E] 。"
     },
     "Cthugha:ChunHuo": {
         "NAME": "鹑火",
@@ -211,8 +211,8 @@
     },
     "Cthugha:JiaoShengDuoMu": {
         "NAME": "骄盛夺目",
-        "DESCRIPTION": "如果目标敌人的最大生命小于等于你的生命，杀死他。 NL 否则使你恢复其已失去最大生命 !M! %的生命，然后 消耗 。",
-        "UPGRADE_DESCRIPTION": "如果目标敌人的最大生命小于等于你的生命，杀死他。 NL 否则使你恢复其已失去最大生命 !M! %的生命，然后 消耗 。"
+        "DESCRIPTION": "如果目标敌人的最大生命不大于你的生命，杀死他。否则使你恢复其已失去最大生命 !M! %的生命，然后 消耗 。",
+        "UPGRADE_DESCRIPTION": "如果目标敌人的最大生命不大于你的生命，杀死他。否则使你恢复其已失去最大生命 !M! %的生命，然后 消耗 。"
     },
     "Cthugha:YongBuFuHuan": {
         "NAME": "永不复还",
@@ -261,8 +261,8 @@
     },
     "Cthugha:HuoYanHuXi": {
         "NAME": "火焰呼吸",
-        "DESCRIPTION": "不能被打出 。 NL cthugha:瞬燃 0：在本场战斗中变化你的 灼伤 为攻击牌，如果已生效，复原。",
-        "UPGRADE_DESCRIPTION": " 保留 。 NL 不能被打出 。 NL cthugha:瞬燃 0：在本场战斗中变化你的 灼伤 为攻击牌，如果已生效，复原。"
+        "DESCRIPTION": "NL cthugha:瞬燃 0：在本场战斗中变化你的 灼伤 为攻击牌，如果已生效，复原。",
+        "UPGRADE_DESCRIPTION": " 保留 。 NL cthugha:瞬燃 0：在本场战斗中变化你的 灼伤 为攻击牌，如果已生效，复原。"
     },
     "Cthugha:ShiXinZhuMing": {
         "NAME": "蚀心烛命",
@@ -281,8 +281,8 @@
     },
     "Cthugha:HongLianYeHuo": {
         "NAME": "红莲业火",
-        "DESCRIPTION": "cthugha:止燎 ：造成 !D! 点伤害；如果目标敌人的 力量 大于等于 !M! ，使其失去2点 力量 。",
-        "UPGRADE_DESCRIPTION": "cthugha:止燎 ：造成 !D! 点伤害；如果目标敌人的 力量 大于等于 !M! ，使其失去2点 力量 。"
+        "DESCRIPTION": "cthugha:止燎 ：造成 !D! 点伤害；如果目标敌人的 力量 大于等于 !M! ，使其失去3点 力量 。",
+        "UPGRADE_DESCRIPTION": "cthugha:止燎 ：造成 !D! 点伤害；如果目标敌人的 力量 大于等于 !M! ，使其失去3点 力量 。"
     },
     "Cthugha:DianJiangChun_ZiYangHanShi": {
         "NAME": "点绛唇·紫阳寒食",
@@ -311,8 +311,8 @@
     },
     "Cthugha:LiuXingBao": {
         "NAME": "流星爆",
-        "DESCRIPTION": "本回合花费能量后不能打出。 NL cthugha:爆炎 ：这张牌造成三倍伤害。 NL 对所有敌人造成 !D! 点伤害X次。生成X个 cthugha:炎之精 。",
-        "UPGRADE_DESCRIPTION": "本回合花费能量后不能打出。 NL cthugha:爆炎 ：这张牌造成三倍伤害。 NL 对所有敌人造成 !D! 点伤害X+1次。生成X+1个 cthugha:炎之精 。"
+        "DESCRIPTION": "本回合未花费能量才能打出。 NL cthugha:爆炎 ：这张牌造成三倍伤害。 NL 对所有敌人造成 !D! 点伤害X次。生成X个 cthugha:炎之精 。",
+        "UPGRADE_DESCRIPTION": "本回合未花费能量才能打出。 NL cthugha:爆炎 ：这张牌造成三倍伤害。 NL 对所有敌人造成 !D! 点伤害X+1次。生成X+1个 cthugha:炎之精 。"
     },
     "Cthugha:Gou": {
         "NAME": "篝",
@@ -321,8 +321,8 @@
     },
     "Cthugha:ChongRanLieHuo": {
         "NAME": "重燃烈火",
-        "DESCRIPTION": " 不能被打出 。 NL cthugha:瞬燃 1：随机对敌人造成 !D! 点伤害。 NL cthugha:瞬燃 2：重置你的 cthugha:瞬燃 次数。",
-        "UPGRADE_DESCRIPTION": " 不能被打出 。 NL cthugha:瞬燃 1：随机对敌人造成 !D! 点伤害。 NL cthugha:瞬燃 2：重置你的 cthugha:瞬燃 次数。"
+        "DESCRIPTION": "cthugha:瞬燃 1：随机对敌人造成 !D! 点伤害。 NL cthugha:瞬燃 2：重置你的 cthugha:瞬燃 次数。",
+        "UPGRADE_DESCRIPTION": "cthugha:瞬燃 1：随机对敌人造成 !D! 点伤害。 NL cthugha:瞬燃 2：重置你的 cthugha:瞬燃 次数。"
     },
     "Cthugha:XinShengYuWu": {
         "NAME": "心胜于物",
@@ -358,6 +358,11 @@
         "NAME": "带食月落",
         "DESCRIPTION": "如果你的手牌耗能之和（包括这张牌）大于等于 !M! ，本回合这些牌的耗能变为0。",
         "UPGRADE_DESCRIPTION": "如果你的手牌耗能之和（包括这张牌）大于等于 !M! ，本回合这些牌的耗能变为0。"
+    },
+    "Cthugha:AnHongHeiYan": {
+        "NAME": "暗红黑炎",
+        "DESCRIPTION": "增加 !M! 张 灼伤 到你的手牌。打出时或 cthugha:爆炎 ：增加1张具有 消耗 的 *爆裂 到你的手牌。",
+        "UPGRADE_DESCRIPTION": "增加 !M! 张 灼伤 到你的手牌。打出时或 cthugha:爆炎 ：增加1张具有 消耗 的 *爆裂 到你的手牌。"
     }
     
     

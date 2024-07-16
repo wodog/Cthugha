@@ -90,8 +90,8 @@ public class YiChiRuXi extends CustomCard {
         // AbstractDungeon.gridSelectScreen.selectedCards.clear();
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
+    // public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+    //     return false;
+    // }
 
 }

@@ -10,10 +10,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 
-@SpirePatch(clz = CorruptHeart.class, method = "usePreBattleAction")
-public class CorruptHeartPatch {
-  public static void Postfix(CorruptHeart __instance) {
-    CardCrawlGame.music.fadeOutTempBGM();
-    CardCrawlGame.music.playTempBgmInstantly("Cthugha-USAO.mp3");
-  }
-}
+// 心脏Boss的Bgm
+// @SpirePatch(clz = CorruptHeart.class, method = "usePreBattleAction")
+// public class CorruptHeartPatch {
+//   public static void Postfix(CorruptHeart __instance) {
+//     CardCrawlGame.music.fadeOutTempBGM();
+//     CardCrawlGame.music.playTempBgmInstantly("Cthugha-USAO.mp3");
+//   }
+// }

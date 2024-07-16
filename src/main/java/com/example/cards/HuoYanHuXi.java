@@ -48,9 +48,9 @@ public class HuoYanHuXi extends AbstractShunRanCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
+    // public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+    //     return false;
+    // }
 
     private void changeBurnAttackTypeCardsInGroup(CardGroup cardGroup) {
         for (AbstractCard c : cardGroup.group) {

@@ -70,7 +70,7 @@ public class HongLianYeHuo extends CustomCard {
                 if (m.hasPower(StrengthPower.POWER_ID)) {
                     AbstractPower strengthPower = m.getPower(StrengthPower.POWER_ID);
                     if (strengthPower.amount >= magicNumber) {
-                        this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -2), -2));
+                        this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -3), -3));
                     }
                 }
                 this.isDone = true;

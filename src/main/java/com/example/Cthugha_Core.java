@@ -14,6 +14,9 @@ import com.example.characters.Cthugha;
 import com.example.enums.*;
 import com.example.helpers.StaticHelper;
 import com.example.relics.HuoTiHuoYan;
+import com.example.relics.LieSiTaShuJian;
+import com.example.relics.LongXin;
+import com.example.relics.ShengLingLieYan;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -109,6 +112,9 @@ public class Cthugha_Core
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new HuoTiHuoYan(), AbstractCardEnum.MOD_NAME_COLOR);
+        BaseMod.addRelicToCustomPool(new ShengLingLieYan(), AbstractCardEnum.MOD_NAME_COLOR);
+        BaseMod.addRelicToCustomPool(new LongXin(), AbstractCardEnum.MOD_NAME_COLOR);
+        BaseMod.addRelicToCustomPool(new LieSiTaShuJian(), AbstractCardEnum.MOD_NAME_COLOR);
     }
 
     @Override
