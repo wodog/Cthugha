@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -29,6 +32,7 @@ import com.example.patch.SpiritField;
 import com.example.power.HeiYanPower;
 import com.example.power.XingYunPower;
 import com.example.relics.HuoTiHuoYan;
+import com.example.ui.SkinSelectScreen;
 
 public class Cthugha extends CustomPlayer {
 
@@ -73,8 +77,16 @@ public class Cthugha extends CustomPlayer {
                 new EnergyManager(3) // 初始每回合的能量
         );
 
+        this.refreshSkin();
+
         // 修复卡牌命定之死在sl情况下会保留翻倍效果的bug。
         HeiYanPower.factor = HeiYanPower.baseFactor;
+    }
+
+    public void refreshSkin() {
+        SkinSelectScreen.Skin skin = SkinSelectScreen.getSkin();
+        this.img = ImageMaster.loadImage(skin.charPath);
+        this.corpseImg = ImageMaster.loadImage(skin.charPath);
     }
 
     // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
@@ -125,8 +137,7 @@ public class Cthugha extends CustomPlayer {
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 "克图格亚", // 人物名字
-                "由炎之精侍奉的被称为火焰之主的旧日支配者。\r\n" + //
-                        "永燃之焰可焚尽一切，境随心转亦御烛蚀死亡。", // 人物介绍
+                "由炎之精侍奉的被称为火焰之主的旧日支配者。 NL 永燃之焰可焚尽一切，境随心转亦御烛蚀死亡。", // 人物介绍
                 66, // 当前血量
                 66, // 最大血量
                 6, // 初始充能球栏位

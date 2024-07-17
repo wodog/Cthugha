@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.AutoAdd;
@@ -129,6 +130,7 @@ public class Cthugha_Core
         BaseMod.loadCustomStringsFile(RelicStrings.class, "cthughaResources/localization/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(OrbStrings.class, "cthughaResources/localization/" + lang + "/orbs.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "cthughaResources/localization/" + lang + "/powers.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, "cthughaResources/localization/" + lang + "/ui.json");
 
         // 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
 
