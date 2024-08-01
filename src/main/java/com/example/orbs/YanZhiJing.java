@@ -85,16 +85,17 @@ public class YanZhiJing extends AbstractOrb {
             int damage = 10;
             AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster(null, true,
                     AbstractDungeon.cardRandomRng);
-            AbstractDungeon.actionManager
-                    .addToBottom(new DamageAction(randomMonster,
-                            new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS)));
-
-            if (AbstractDungeon.player.hasPower(ZhuShiZhaoPower.POWER_ID)) {
-                AbstractPower power = AbstractDungeon.player.getPower(ZhuShiZhaoPower.POWER_ID);
-                if (power != null) {
-                    power.flash();
-                    AbstractDungeon.actionManager
-                            .addToBottom(new DecreaseMonsterMaxHealthAction(randomMonster, damage));
+            if (randomMonster != null) {
+                AbstractDungeon.actionManager
+                        .addToBottom(new DamageAction(randomMonster,
+                                new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS)));
+                if (AbstractDungeon.player.hasPower(ZhuShiZhaoPower.POWER_ID)) {
+                    AbstractPower power = AbstractDungeon.player.getPower(ZhuShiZhaoPower.POWER_ID);
+                    if (power != null) {
+                        power.flash();
+                        AbstractDungeon.actionManager
+                                .addToBottom(new DecreaseMonsterMaxHealthAction(randomMonster, damage));
+                    }
                 }
             }
 

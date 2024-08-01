@@ -75,7 +75,7 @@ public class DianJiangChun_ZiYangHanShi extends CustomCard {
                                 int burnCount = 0;
                                 for (AbstractCard card : abstractCards) {
                                     this.addToBot(new DiscardSpecificCardAction(card));
-                                    if (ModHelper.IsBurn(card)) {
+                                    if (ModHelper.IsBurnCard(card)) {
                                         burnCount++;
                                     }
                                 }
