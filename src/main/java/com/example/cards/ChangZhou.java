@@ -62,16 +62,17 @@ public class ChangZhou extends AbstractShunRanCard {
             this.initializeDescription();
 
             this.upgradeDamage(6);
+            this.upgradeMagicNumber(1);
         }
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            return super.canUse(p, m);
-        }
+    // public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+    //     if (this.upgraded) {
+    //         return super.canUse(p, m);
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
     }
@@ -82,7 +83,7 @@ public class ChangZhou extends AbstractShunRanCard {
                 public void update() {
                     for (AbstractCard c : DrawCardAction.drawnCards) {
                         if (c.costForTurn >= 0) {
-                            c.costForTurn += 2;
+                            c.costForTurn += 1;
                         }
                     }
                     this.isDone = true;

@@ -24,7 +24,8 @@
   "Cthugha:BeiLuoShiMenXieDingPower": {
     "NAME": "北落师门协定",
     "DESCRIPTIONS": [
-      "每当你打出一张爆炎牌时，如果未触发爆炎，生成1个炎之精，获得 [E] 。"
+      "每当你打出一张爆炎牌时，如果未触发爆炎，生成 #b",
+      " 个炎之精，获得 [E] 。"
     ]
   },
   "Cthugha:XinShangWuMingHuoPower": {
@@ -57,7 +58,7 @@
   "Cthugha:SiHuiFuRanPower": {
     "NAME": "死灰复燃",
     "DESCRIPTIONS": [
-      "每当你消耗一张灼伤时，将 #b",
+      "每有一张灼伤被消耗时，将 #b",
       " 张灼伤放入你的弃牌堆"
     ]
   },

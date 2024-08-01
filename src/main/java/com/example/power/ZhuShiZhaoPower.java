@@ -33,7 +33,7 @@ public class ZhuShiZhaoPower extends AbstractPower {
         this.owner = owner;
         // this.amount = amount;
         this.updateDescription();
-        this.img = new Texture("cthughaResources/img/power/211_32.png");
+        this.img = new Texture("cthughaResources/img/power/221_32.png");
     }
 
     public void updateDescription() {

@@ -75,7 +75,6 @@ public class ZhongKuJianPo extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new MakeTempCardInHandAction(new Burn(), 1));
 
-
         this.addToBot(new AbstractGameAction() {
             public void update() {
                 int count = 0;
@@ -84,24 +83,34 @@ public class ZhongKuJianPo extends CustomCard {
                         count++;
                     }
                 }
-        
+
+                // 依次给予
                 for (int i = 0; i < count; i++) {
-                    int kind =  MathUtils.random(0, 2);
-                    if (kind == 0) { // 2层易伤
+                    if (i % 3 == 0) {
                         this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(p, 2, false)));
-                    } else if (kind == 1) { // 2层虚弱
+                    } else if (i % 3 == 1) {
                         this.addToBot(new ApplyPowerAction(m, p, new WeakPower(p, 2, false)));
-                    } else if (kind == 2) { // 10层中毒
+                    } else if (i % 3 == 2) {
                         this.addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, 10)));
                     }
                 }
+
+                // // 随机给予
+                // for (int i = 0; i < count; i++) {
+                //     int kind = MathUtils.random(0, 2);
+                //     if (kind == 0) { // 2层易伤
+                //         this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(p, 2, false)));
+                //     } else if (kind == 1) { // 2层虚弱
+                //         this.addToBot(new ApplyPowerAction(m, p, new WeakPower(p, 2, false)));
+                //     } else if (kind == 2) { // 10层中毒
+                //         this.addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, 10)));
+                //     }
+                // }
 
                 this.isDone = true;
             }
         });
 
     }
-
-    
 
 }

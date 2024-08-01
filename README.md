@@ -1,11 +1,10 @@
-# 尖塔源码研究
+# 克图格亚
 
-## 卡牌()
+## Build
 
-## 能力（Power）
-继承 AbstractPower 类
+`
+maven pacakge
+`
 
-    * atEndOfTurnPreEndTurnCards
-
-
-## 动作
+把打包的jar文件放入这个文件夹 C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods
+再启动尖塔勾选该mod

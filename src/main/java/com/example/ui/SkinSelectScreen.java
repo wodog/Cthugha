@@ -62,6 +62,7 @@ public class SkinSelectScreen implements ISubscriber, CustomSavable<Integer> {
     SKINS.add(new Skin(0, "default", Color.RED.cpy()));
     SKINS.add(new Skin(1, "mari", Color.BLUE.cpy()));
     SKINS.add(new Skin(2, "god", Color.BLUE.cpy()));
+    SKINS.add(new Skin(3, "dianhuo", Color.BLUE.cpy()));
 
     Inst = new SkinSelectScreen();
   }

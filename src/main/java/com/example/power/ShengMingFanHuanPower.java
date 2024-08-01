@@ -32,6 +32,8 @@ public class ShengMingFanHuanPower extends AbstractPower {
         this.updateDescription();
         // this.loadRegion("thorns");
         this.img = new Texture("cthughaResources/img/power/215_32.png");
+
+        this.type = PowerType.DEBUFF;
         
     }
 

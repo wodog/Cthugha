@@ -27,7 +27,7 @@ public class HeiYanPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("cthughaResources/img/power/202_32.png");
 
-        this.type = com.megacrit.cardcrawl.powers.AbstractPower.PowerType.DEBUFF;
+        this.type = PowerType.DEBUFF;
     }
 
     public void updateDescription() {

@@ -62,7 +62,8 @@ public class TianGuangChuLiang extends CustomCard {
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
 
-            this.isEthereal = false;
+            // this.isEthereal = false;
+            this.selfRetain = true;
         }
     }
 

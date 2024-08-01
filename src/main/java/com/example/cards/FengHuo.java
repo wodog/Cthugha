@@ -1,5 +1,8 @@
 package com.example.cards;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 import com.example.enums.AbstractCardEnum;
 import com.example.helpers.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -8,10 +11,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
@@ -53,6 +58,10 @@ public class FengHuo extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        // ArrayList<AbstractCard> generatedCards = new ArrayList<>();
+        // generatedCards.add(this);
+        // AbstractDungeon.cardRewardScreen.chooseOneOpen(generatedCards);
+
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         this.addToBot(new GainEnergyAction(1));

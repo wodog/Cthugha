@@ -105,7 +105,7 @@
         "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 斩杀 时，恢复 !M! 点生命。"
     },
     "Cthugha:ZhuShiZhao": {
-        "NAME": "烛世昭",
+        "NAME": "无幽不烛",
         "DESCRIPTION": "每当你的攻击或 cthugha:炎之精 造成未被 格挡 的伤害时，使敌人失去等量的最大生命。",
         "UPGRADE_DESCRIPTION": "生成1个 cthugha:炎之精 。 NL 每当你的攻击或 cthugha:炎之精 造成未被 格挡 的伤害时，使敌人失去等量的最大生命。"
     },
@@ -125,7 +125,7 @@
         "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 如果未被 格挡 的伤害大于等于敌人最大生命的60%（boss为30%）或杀死了敌人，获得 !M! 层 cthugha:缓冲 。 NL 消耗 。"
     },
     "Cthugha:ZhuMengLing": {
-        "NAME": "烛梦令",
+        "NAME": "烛照数计",
         "DESCRIPTION": " 虚无 。 NL 你每打出一张牌，就使所有敌人失去2点最大生命。",
         "UPGRADE_DESCRIPTION": "你每打出一张牌，就使所有敌人失去2点最大生命。"
     },
@@ -146,8 +146,8 @@
     },
     "Cthugha:QinLueRuHuo": {
         "NAME": "侵掠如火",
-        "DESCRIPTION": "造成 !D! 点伤害。你每有一张 灼伤 牌，这张牌的伤害增加2。",
-        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。你每有一张 灼伤 牌，这张牌的伤害增加2。"
+        "DESCRIPTION": "造成 !D! 点伤害。你每有一张 灼伤 牌，这张牌的伤害增加 !M! 。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。你每有一张 灼伤 牌，这张牌的伤害增加 !M! 。"
     },
     "Cthugha:YingHuoLiHuo": {
         "NAME": "荧惑离火",
@@ -180,19 +180,19 @@
         "UPGRADE_DESCRIPTION": "增加 !M! 张 灼伤 到你的手牌。重置本回合的 cthugha:瞬燃 次数。"
     },
     "Cthugha:HuiAnTianHuo": {
-        "NAME": "晦暗天火",
+        "NAME": "霁明无晦",
         "DESCRIPTION": "获得 !B! +已 消耗 的 灼伤 牌数点 格挡 。 NL cthugha:瞬燃 !M! ：从手牌中打出这张牌。",
         "UPGRADE_DESCRIPTION": "获得 !B! +已 消耗 的 灼伤 牌数点 格挡 。 NL cthugha:瞬燃 !M! ：从手牌中打出这张牌。"
     },
     "Cthugha:ZhongKuJianPo": {
         "NAME": "众苦煎迫",
-        "DESCRIPTION": "增加1张 灼伤 到你的手牌。手牌中每有一张 灼伤 牌，随机给予目标敌人2层 易伤 、2层 虚弱 、10层 中毒 中的一种。",
-        "UPGRADE_DESCRIPTION": "增加1张 灼伤 到你的手牌。手牌中每有一张 灼伤 牌，随机给予目标敌人2层 易伤 、2层 虚弱 、10层 中毒 中的一种。"
+        "DESCRIPTION": "增加1张 灼伤 到你的手牌。手牌中每有一张 灼伤 牌，依次给予2层 易伤 、2层 虚弱 、10层 中毒 。",
+        "UPGRADE_DESCRIPTION": "增加1张 灼伤 到你的手牌。手牌中每有一张 灼伤 牌，依次给予2层 易伤 、2层 虚弱 、10层 中毒 。"
     },
     "Cthugha:SiHuiFuRan": {
         "NAME": "死灰复燃",
-        "DESCRIPTION": "每当你 消耗 一张 灼伤 时，将1张 灼伤 放入你的弃牌堆。",
-        "UPGRADE_DESCRIPTION": "每当你 消耗 一张 灼伤 时，将1张 灼伤 放入你的弃牌堆。"
+        "DESCRIPTION": "每有一张 灼伤 被 消耗 时，将1张 灼伤 放入你的弃牌堆。",
+        "UPGRADE_DESCRIPTION": "每有一张 灼伤 被 消耗 时，将1张 灼伤 放入你的弃牌堆。"
     },
     "Cthugha:XinSuEr": {
         "NAME": "心宿二",
@@ -215,9 +215,9 @@
         "UPGRADE_DESCRIPTION": "如果目标敌人的最大生命不大于你的生命，杀死他。否则使你恢复其已失去最大生命 !M! %的生命，然后 消耗 。"
     },
     "Cthugha:YongBuFuHuan": {
-        "NAME": "永不复还",
-        "DESCRIPTION": "选择手牌中1张 灼伤 或 *防御 将其一张同名卡从你的牌组中 移除 。 NL 消耗 。",
-        "UPGRADE_DESCRIPTION": "选择手牌中1张 灼伤 或 *防御 将其一张同名卡从你的牌组中 移除 。 NL 消耗 。"
+        "NAME": "其色孤白",
+        "DESCRIPTION": "选择手牌中1张 灼伤 或 *防御 将其一张同名牌从你的牌组中 移除 。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": "选择手牌中1张 灼伤 或 *防御 将其一张同名牌从你的牌组中 移除 。 NL 消耗 。"
     },
     "Cthugha:ChiYangXingTai": {
         "NAME": "炽阳形态",
@@ -226,8 +226,8 @@
     },
     "Cthugha:ChiRiGaoXuan": {
         "NAME": "炽日高悬",
-        "DESCRIPTION": "获得 !M! 层 *飞行 。 NL 在每回合结束时失去1点 力量 。",
-        "UPGRADE_DESCRIPTION": "获得 !M! 层 *飞行 。 NL 在每回合结束时失去1点 力量 。"
+        "DESCRIPTION": "获得 !M! 层 cthugha:飞行 。 NL 在每回合结束时失去1点 力量 。",
+        "UPGRADE_DESCRIPTION": "获得 !M! 层 cthugha:飞行 。 NL 在每回合结束时失去1点 力量 。"
     },
     "Cthugha:YanWu": {
         "NAME": "炎舞",
@@ -236,8 +236,8 @@
     },
     "Cthugha:MingDingZhiSi": {
         "NAME": "命定之死",
-        "DESCRIPTION": "在本场战斗中有 cthugha:黑焰 状态的敌人每回合结束时失去的生命和最大生命值翻倍。 NL 抽1张牌。 NL 消耗 。",
-        "UPGRADE_DESCRIPTION": "在本场战斗中有 cthugha:黑焰 状态的敌人每回合结束时失去的生命和最大生命值变为三倍。 NL 抽1张牌。 NL 消耗 。"
+        "DESCRIPTION": "在本场战斗中有 cthugha:黑焰 状态的敌人每回合结束时失去的生命和最大生命值翻倍。 NL 抽1张牌。 消耗 。",
+        "UPGRADE_DESCRIPTION": "在本场战斗中有 cthugha:黑焰 状态的敌人每回合结束时失去的生命和最大生命值变为三倍。 NL 抽1张牌。 消耗 。"
     },
     "Cthugha:HeLuSiZhiYan": {
         "NAME": "荷鲁斯之眼",
@@ -302,7 +302,7 @@
     "Cthugha:TianGuangChuLiang": {
         "NAME": "天光初亮",
         "DESCRIPTION": " 固有 。 NL 增加3张 灼伤 到你的手牌。 NL 消耗 。 虚无 。",
-        "UPGRADE_DESCRIPTION": " 固有 。 NL 增加3张 灼伤 到你的手牌。 NL 消耗 。"
+        "UPGRADE_DESCRIPTION": " 固有 。 NL 增加3张 灼伤 到你的手牌。 NL 消耗 。 保留 。"
     },
     "Cthugha:XingYun": {
         "NAME": "星陨",
@@ -325,9 +325,9 @@
         "UPGRADE_DESCRIPTION": "cthugha:瞬燃 1：随机对敌人造成 !D! 点伤害。 NL cthugha:瞬燃 2：重置你的 cthugha:瞬燃 次数。"
     },
     "Cthugha:XinShengYuWu": {
-        "NAME": "心胜于物",
-        "DESCRIPTION": "cthugha:爆炎 ：移除所有 cthugha:炎之精 ，获得 !B! 点 格挡 。",
-        "UPGRADE_DESCRIPTION": "cthugha:爆炎 ：移除所有 cthugha:炎之精 ，获得 !B! 点 格挡 。"
+        "NAME": "星幽光逆",
+        "DESCRIPTION": "cthugha:爆炎 ：获得 !B! 点 格挡 。 ----------------- NL 移除所有 cthugha:炎之精 ，每个被移除的 cthugha:炎之精 获得 !M! 点 格挡 。",
+        "UPGRADE_DESCRIPTION": "cthugha:爆炎 ：获得 !B! 点 格挡 。 ----------------- NL 移除所有 cthugha:炎之精 ，每个被移除的 cthugha:炎之精 获得 !M! 点 格挡 。"
     },
     "Cthugha:XianYi": {
         "NAME": "鲜衣",
@@ -351,8 +351,8 @@
     },
     "Cthugha:ChangZhou": {
         "NAME": "长昼",
-        "DESCRIPTION": " 不能被打出 。 NL cthugha:瞬燃 0：抽3张牌，抽到的牌本回合耗能+2。",
-        "UPGRADE_DESCRIPTION": "cthugha:瞬燃 0：抽3张牌，抽到的牌本回合耗能+2。"
+        "DESCRIPTION": "cthugha:瞬燃 0：抽 !M! 张牌，抽到的牌本回合耗能+1。",
+        "UPGRADE_DESCRIPTION": "cthugha:瞬燃 0：抽 !M! 张牌，抽到的牌本回合耗能+1。"
     },
     "Cthugha:DaiShiYueLuo": {
         "NAME": "带食月落",
@@ -363,6 +363,16 @@
         "NAME": "暗红黑炎",
         "DESCRIPTION": "增加 !M! 张 灼伤 到你的手牌。打出时或 cthugha:爆炎 ：增加1张具有 消耗 的 *爆裂 到你的手牌。",
         "UPGRADE_DESCRIPTION": "增加 !M! 张 灼伤 到你的手牌。打出时或 cthugha:爆炎 ：增加1张具有 消耗 的 *爆裂 到你的手牌。"
+    },
+    "Cthugha:ZhuoShangDaJi": {
+        "NAME": "灼伤打击",
+        "DESCRIPTION": "造成 !D! 点伤害 !M! 次。从抽牌堆中抽1张 打击 牌。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次。从抽牌堆中抽1张 打击 牌。"
+    },
+    "Cthugha:JingZhuangZhuoShangJi": {
+        "NAME": "精装灼伤集",
+        "DESCRIPTION": "增加 !M! 张 *灼伤打击 到你的手牌。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": "增加 !M! 张 *灼伤打击 到你的手牌。"
     }
     
     

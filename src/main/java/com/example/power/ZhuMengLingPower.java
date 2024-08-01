@@ -35,7 +35,7 @@ public class ZhuMengLingPower extends AbstractPower {
         this.owner = owner;
         this.amount = amount;
         this.updateDescription();
-        this.img = new Texture("cthughaResources/img/power/210_32.png");
+        this.img = new Texture("cthughaResources/img/power/211_32.png");
     }
 
     public void updateDescription() {

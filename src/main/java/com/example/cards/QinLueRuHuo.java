@@ -43,6 +43,7 @@ public class QinLueRuHuo extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         this.damage = this.baseDamage = 0;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -52,7 +53,8 @@ public class QinLueRuHuo extends CustomCard {
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
 
-            this.upgradeDamage(4);
+            // this.upgradeDamage(4);
+            this.upgradeMagicNumber(1);
         }
     }
 
@@ -75,7 +77,7 @@ public class QinLueRuHuo extends CustomCard {
                 count++;
             }
         }
-        this.baseDamage = this.baseDamage + 2 * count;
+        this.baseDamage = this.baseDamage + this.magicNumber * count;
 
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
@@ -101,7 +103,7 @@ public class QinLueRuHuo extends CustomCard {
                 count++;
             }
         }
-        this.baseDamage = this.baseDamage + 2 * count;
+        this.baseDamage = this.baseDamage + this.magicNumber * count;
 
         super.applyPowers();
         this.baseDamage = realBaseDamage;

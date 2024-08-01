@@ -42,10 +42,8 @@ public class LossYanZhiJingPower extends AbstractPower {
     }
 
     public void atEndOfTurn(boolean isPlayer) {
-        System.out.println("6666666665");
         for (int i = 0; i < this.amount; i++) {
             AbstractDungeon.player.removeNextOrb();
-            // this.addToTop(new RemoveNextOrbAction());
         }
 
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));

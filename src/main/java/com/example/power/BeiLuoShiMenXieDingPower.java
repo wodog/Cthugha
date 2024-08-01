@@ -40,13 +40,15 @@ public class BeiLuoShiMenXieDingPower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = powerStrings.DESCRIPTIONS[0];
+        this.description = powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1];
     }
 
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         this.flash();
         if (card.hasTag(CustomTags.Yan_Bao) && !card.hasTag(CustomTags.Yan_Bao_Triggered)) {
-            this.addToBot(new ChannelAction(new YanZhiJing()));
+            for (int i = 0; i < this.amount; i ++) {
+                this.addToBot(new ChannelAction(new YanZhiJing()));
+            }
             this.addToBot(new GainEnergyAction(1));
         }
 

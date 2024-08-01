@@ -48,4 +48,8 @@ public class HuoZhuoLianZiPower extends AbstractPower {
         this.addToBot(new RemoveSpecificPowerAction(owner, owner, EntanglePower.POWER_ID));
     }
 
+    public void atEndOfTurn(boolean isPlayer) {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+    }
+
 }

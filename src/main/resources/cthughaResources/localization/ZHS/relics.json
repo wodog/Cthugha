@@ -26,5 +26,12 @@
     "DESCRIPTIONS": [
       "如果你在回合中剩余能量，在下回合开始时获得 [E] [E] 。"
     ]
+  },
+  "Cthugha:YongRanShi": {
+    "NAME": "永燃石",
+    "FLAVOR": "纯粹伊希尔能量浓缩而成的固体……？",
+    "DESCRIPTIONS": [
+      "这个牌组中的牌包括 #y灼伤 ， #y炸弹 ， #y断魂斩 ，"
+    ]
   }
 }

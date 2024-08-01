@@ -35,6 +35,11 @@ public class LongXin extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
 
+    // 重置
+    public void atBattleStart() {
+        this.flag = false;
+    }
+
     public void onPlayerEndTurn() {
         if (AbstractDungeon.player.energy.energy > 0) {
             this.flag = true;

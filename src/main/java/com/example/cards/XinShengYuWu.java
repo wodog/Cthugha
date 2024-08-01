@@ -41,7 +41,8 @@ public class XinShengYuWu extends CustomCard {
     public XinShengYuWu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-        this.block = this.baseBlock = 40;
+        this.block = this.baseBlock = 20;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.tags.add(CustomTags.Yan_Bao);
     }
 
@@ -53,6 +54,7 @@ public class XinShengYuWu extends CustomCard {
             this.initializeDescription();
 
             this.upgradeBlock(10);
+            this.upgradeMagicNumber(1);
         }
     }
 
@@ -62,19 +64,27 @@ public class XinShengYuWu extends CustomCard {
         this.addToBot(new YanBaoAction(this, new AbstractGameAction() {
             @Override
             public void update() {
-                int size = AbstractDungeon.player.orbs.size();
-                for (int i = 0; i < size; i++) {
-                    AbstractOrb orb = AbstractDungeon.player.orbs.get(i);
-                    if (orb.ID == YanZhiJing.ORB_ID) {
-                        this.addToBot(new RemoveNextOrbAction());
-                    }
-                }
-
                 this.addToBot(new GainBlockAction(p, self.block));
                 this.isDone = true;
             }
 
         }));
+
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                int size = AbstractDungeon.player.orbs.size();
+                for (int i = 0; i < size; i++) {
+                    AbstractOrb orb = AbstractDungeon.player.orbs.get(i);
+                    if (orb.ID == YanZhiJing.ORB_ID) {
+                        this.addToBot(new RemoveNextOrbAction());
+                        this.addToBot(new GainBlockAction(p, self.magicNumber));
+                    }
+                }
+                this.isDone = true;
+            }
+
+        });
 
     }
 

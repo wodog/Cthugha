@@ -180,7 +180,7 @@ public class Cthugha extends CustomPlayer {
     // 第三章面对心脏说的话（例如战士是“你握紧了你的长刀……”之类的）
     @Override
     public String getSpireHeartText() {
-        return "123123";
+        return "你将那焰引起随之任之燃到炽烈已极……";
     }
 
     // 翻牌事件出现的你的职业牌（一般设为打击）
