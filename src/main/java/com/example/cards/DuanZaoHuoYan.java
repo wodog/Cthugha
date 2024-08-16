@@ -21,7 +21,7 @@ public class DuanZaoHuoYan extends CustomCard {
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    private static final String IMG_PATH = "cthughaResources/img/card/040.png";
+    private static final String IMG_PATH = "cthughaResources/img/card/149.png";
     private static final int COST = 2;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;;

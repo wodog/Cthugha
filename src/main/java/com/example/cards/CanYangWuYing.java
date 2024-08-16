@@ -22,7 +22,9 @@ import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import basemod.abstracts.CustomCard;
+import basemod.AutoAdd;
 
+@AutoAdd.Ignore
 public class CanYangWuYing extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(CanYangWuYing.class.getSimpleName());

@@ -14,7 +14,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
+import basemod.AutoAdd;
 
+@AutoAdd.Ignore
 public class HeiYanDaoRen extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(HeiYanDaoRen.class.getSimpleName());

@@ -19,6 +19,9 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 import basemod.abstracts.CustomCard;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class TaiYangHeiZi extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(TaiYangHeiZi.class.getSimpleName());

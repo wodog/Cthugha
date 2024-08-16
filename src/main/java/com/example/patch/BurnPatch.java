@@ -47,25 +47,40 @@ public class BurnPatch {
         }
     }
 
+    @SpirePatch(clz = Burn.class, method = "upgrade")
+    public static class Renpi_player12 {
+        public static SpireReturn Postfix(AbstractCard _inst) {
+            if (_inst.type != CardType.STATUS) {
+                _inst.rawDescription = "造成 !D! 点伤害。";
+                _inst.initializeDescription();
+                _inst.baseDamage = _inst.baseMagicNumber;
+                return SpireReturn.Return();
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
     @SpirePatch(clz = Burn.class, method = "use", paramtypez = { AbstractPlayer.class, AbstractMonster.class })
     public static class Renpi_player {
         public static void Replace(AbstractCard _inst, AbstractPlayer p, AbstractMonster m) {
             if (AbstractDungeon.player.hasPower(FenJiPower.POWER_ID)) {
                 AbstractPower power = AbstractDungeon.player.getPower(FenJiPower.POWER_ID);
                 _inst.magicNumber += power.amount;
-                power.flash();
+                _inst.damage += power.amount;
             }
             if (AbstractDungeon.player.hasRelic(HuoTiHuoYan.ID)) {
                 _inst.magicNumber += 3;
+                _inst.damage += 3;
             }
             if (AbstractDungeon.player.hasRelic(ShengLingLieYan.ID)) {
                 _inst.magicNumber += 8;
+                _inst.damage += 8;
             }
 
             if (_inst.type == CardType.ATTACK) { // 攻击牌
                 AbstractDungeon.actionManager.addToBottom(
                         new DamageAction(m,
-                                new DamageInfo(AbstractDungeon.player, _inst.magicNumber,
+                                new DamageInfo(AbstractDungeon.player, _inst.damage,
                                         DamageInfo.DamageType.NORMAL),
                                 AbstractGameAction.AttackEffect.NONE));
             } else { // 自动打出
@@ -77,9 +92,11 @@ public class BurnPatch {
                                                 DamageInfo.DamageType.THORNS),
                                         AbstractGameAction.AttackEffect.FIRE));
                     } else if (AbstractDungeon.player.hasRelic(ShengLingLieYan.ID)) {
-                        AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                        AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true,
+                                AbstractDungeon.cardRandomRng);
                         if (monster != null) {
-                            AbstractDungeon.actionManager.addToBottom(new DecreaseMonsterMaxHealthAction(monster, _inst.magicNumber));
+                            AbstractDungeon.actionManager
+                                    .addToBottom(new DecreaseMonsterMaxHealthAction(monster, _inst.magicNumber));
                         }
                     } else {
                         AbstractDungeon.actionManager

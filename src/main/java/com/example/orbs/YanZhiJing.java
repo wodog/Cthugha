@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.example.actions.DecreaseMonsterMaxHealthAction;
 import com.example.cards.HuoYanHuaSheng;
 import com.example.helpers.ModHelper;
-import com.example.power.ZhuShiZhaoPower;
+import com.example.power.WuYouBuZhuPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -86,17 +86,17 @@ public class YanZhiJing extends AbstractOrb {
             AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster(null, true,
                     AbstractDungeon.cardRandomRng);
             if (randomMonster != null) {
-                AbstractDungeon.actionManager
-                        .addToBottom(new DamageAction(randomMonster,
-                                new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS)));
-                if (AbstractDungeon.player.hasPower(ZhuShiZhaoPower.POWER_ID)) {
-                    AbstractPower power = AbstractDungeon.player.getPower(ZhuShiZhaoPower.POWER_ID);
+                if (AbstractDungeon.player.hasPower(WuYouBuZhuPower.POWER_ID)) {
+                    AbstractPower power = AbstractDungeon.player.getPower(WuYouBuZhuPower.POWER_ID);
                     if (power != null) {
                         power.flash();
                         AbstractDungeon.actionManager
-                                .addToBottom(new DecreaseMonsterMaxHealthAction(randomMonster, damage));
+                                .addToTop(new DecreaseMonsterMaxHealthAction(randomMonster, damage));
                     }
                 }
+                AbstractDungeon.actionManager
+                        .addToTop(new DamageAction(randomMonster,
+                                new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS)));
             }
 
             this.card = null;
@@ -104,7 +104,14 @@ public class YanZhiJing extends AbstractOrb {
     }
 
     public void onEndOfTurn() {
-        this.applyPassive();
+        YanZhiJing self = this;
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                self.applyPassive();
+                this.isDone = true;
+            }
+        });
     }
 
     @Override

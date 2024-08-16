@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.AbstractRelic.LandingSound;
 import com.megacrit.cardcrawl.relics.AbstractRelic.RelicTier;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import basemod.abstracts.CustomRelic;
 
@@ -41,7 +42,7 @@ public class LongXin extends CustomRelic {
     }
 
     public void onPlayerEndTurn() {
-        if (AbstractDungeon.player.energy.energy > 0) {
+        if (EnergyPanel.totalCount > 0) {
             this.flag = true;
         } else {
             this.flag = false;

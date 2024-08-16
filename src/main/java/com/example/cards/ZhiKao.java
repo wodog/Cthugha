@@ -27,6 +27,10 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 
 import basemod.abstracts.CustomCard;
 
+
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class ZhiKao extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(ZhiKao.class.getSimpleName());

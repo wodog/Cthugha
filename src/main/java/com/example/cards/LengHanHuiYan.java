@@ -21,6 +21,10 @@ import com.megacrit.cardcrawl.powers.SlowPower;
 
 import basemod.abstracts.CustomCard;
 
+
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class LengHanHuiYan extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(LengHanHuiYan.class.getSimpleName());

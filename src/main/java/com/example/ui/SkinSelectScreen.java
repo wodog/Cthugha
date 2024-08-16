@@ -98,10 +98,11 @@ public class SkinSelectScreen implements ISubscriber, CustomSavable<Integer> {
     this.curName = skin.name;
     // loadAnimation(skin.charPath + ".atlas", skin.charPath + ".json", 1.5F);
     this.nextName = ((Skin) SKINS.get(nextIndex())).name;
-    // if (AbstractDungeon.player instanceof Cthugha) {
-    // Cthugha k = (Cthugha) AbstractDungeon.player;
-    // k.refreshSkin();
-    // }
+
+    if (AbstractDungeon.player instanceof Cthugha) {
+      Cthugha k = (Cthugha) AbstractDungeon.player;
+      k.refreshSkin();
+    }
   }
 
   public int prevIndex() {
@@ -236,7 +237,9 @@ public class SkinSelectScreen implements ISubscriber, CustomSavable<Integer> {
   }
 
   public void onLoad(Integer arg0) {
-    this.index = arg0.intValue();
+    if (arg0 != null) {
+      this.index = arg0.intValue();
+    }
     refresh();
   }
 

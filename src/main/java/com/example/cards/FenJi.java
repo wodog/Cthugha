@@ -6,6 +6,7 @@ import java.util.Iterator;
 import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnReceivePowerPatch.ApplyPower;
 import com.example.actions.YanBaoAction;
 import com.example.enums.AbstractCardEnum;
+import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
 import com.example.orbs.YanZhiJing;
 import com.example.power.FenJiPower;
@@ -49,6 +50,8 @@ public class FenJi extends CustomCard {
     public FenJi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 3;
+
+        this.tags.add(CustomTags.Yan_Bao);
     }
 
     @Override

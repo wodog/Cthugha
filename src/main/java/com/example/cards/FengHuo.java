@@ -23,6 +23,9 @@ import com.megacrit.cardcrawl.powers.EnergizedPower;
 
 import basemod.abstracts.CustomCard;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class FengHuo extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(FengHuo.class.getSimpleName());

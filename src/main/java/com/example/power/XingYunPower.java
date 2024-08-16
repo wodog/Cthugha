@@ -38,7 +38,6 @@ public class XingYunPower extends AbstractPower {
     }
 
     public void atEndOfTurn(boolean isPlayer) {
-        System.out.println("6666666665111");
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 

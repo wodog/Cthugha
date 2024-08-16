@@ -17,6 +17,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 
+
+
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class XinShangWuMingHuo extends CustomCard {
 
     public static final String ID = ModHelper.MakePath(XinShangWuMingHuo.class.getSimpleName());

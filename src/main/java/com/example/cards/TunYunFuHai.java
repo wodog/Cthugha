@@ -31,7 +31,7 @@ public class TunYunFuHai extends CustomCard {
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    private static final String IMG_PATH = "cthughaResources/img/card/044.png";
+    private static final String IMG_PATH = "cthughaResources/img/card/152.png";
     private static final int COST = 5;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;;
@@ -61,22 +61,6 @@ public class TunYunFuHai extends CustomCard {
         }
     }
 
-    // public void atTurnStart() {
-    //     this.upgradeBaseCost(rawCost);
-    // }
-
-    // public void triggerOnOtherCardPlayed(AbstractCard c) {
-    //     this.calcAndSetCost(this);
-    // }
-
-    // public void triggerWhenCopied() {
-    //     this.calcAndSetCost(this);
-    // }
-
-    // public void triggerWhenDrawn() {
-    //     this.calcAndSetCost(this);
-    // }
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < this.magicNumber; i++) {
@@ -91,24 +75,18 @@ public class TunYunFuHai extends CustomCard {
     }
 
     private void calcAndSetCost(TunYunFuHai _inst) {
-        this.addToBot(new AbstractGameAction() {
-            public void update() {
-                int count = 0;
-                for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                    if (ModHelper.IsBurn(card)) {
-                        count++;
-                    }
-                }
-                int curCost = _inst.rawCost - count;
-                if (curCost < 0) {
-                    curCost = 0;
-                }
-                _inst.upgradeBaseCost(curCost);
-                _inst.magicNumber = count;
-
-                this.isDone = true;
+        int count = 0;
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
+            if (ModHelper.IsBurn(card)) {
+                count++;
             }
-        });
+        }
+        int curCost = _inst.rawCost - count;
+        if (curCost < 0) {
+            curCost = 0;
+        }
+        _inst.upgradeBaseCost(curCost);
+        _inst.magicNumber = count;
     }
 
 }

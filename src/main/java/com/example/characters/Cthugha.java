@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -199,12 +200,12 @@ public class Cthugha extends CustomPlayer {
         arr.add("Burn");
         arr.add("Burn");
         arr.add("Burn");
-        arr.add("Defend_R");
-        arr.add("Defend_R");
-        arr.add("Defend_R");
-        arr.add("Defend_R");
-        arr.add("Defend_R");
-        arr.add("Defend_R");
+        arr.add("Cthugha:Defend");
+        arr.add("Cthugha:Defend");
+        arr.add("Cthugha:Defend");
+        arr.add("Cthugha:Defend");
+        arr.add("Cthugha:Defend");
+        arr.add("Cthugha:Defend");
         arr.add("Cthugha:HuoYanHuaSheng");
 
         // a.add("Perfected Strike");
@@ -255,7 +256,7 @@ public class Cthugha extends CustomPlayer {
         if (AbstractDungeon.player.hasPower(XingYunPower.POWER_ID)) {
             AbstractPower power = AbstractDungeon.player.getPower(XingYunPower.POWER_ID);
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(
-                    new DamageInfo(AbstractDungeon.player, power.amount), AttackEffect.NONE));
+                    new DamageInfo(AbstractDungeon.player, power.amount, DamageType.THORNS), AttackEffect.NONE));
         }
 
     }

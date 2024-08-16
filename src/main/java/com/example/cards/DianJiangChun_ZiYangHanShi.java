@@ -5,6 +5,7 @@ import com.example.enums.AbstractCardEnum;
 import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
 import com.example.power.TaoHuoShiYanPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -67,7 +68,18 @@ public class DianJiangChun_ZiYangHanShi extends CustomCard {
 
         int actualEffect = effect;
         if (actualEffect > 0) {
-            this.addToBot(
+
+            DianJiangChun_ZiYangHanShi self = this;
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    if (p.hand.size() == 0) {
+                        this.addToBot(new GainEnergyAction(actualEffect));
+                        this.addToBot(new DrawCardAction(actualEffect));
+                        this.isDone = true;
+                        return;
+                    }
+
                     new SelectCardsInHandAction(actualEffect, "丢弃", false, false,
                             card -> true,
                             abstractCards -> {
@@ -82,12 +94,17 @@ public class DianJiangChun_ZiYangHanShi extends CustomCard {
 
                                 if (burnCount > 0) {
                                     int n = (int) burnCount / 2;
-                                    count = count + this.magicNumber * n;
+                                    count = count + self.magicNumber * n;
                                 }
 
                                 this.addToBot(new GainEnergyAction(count));
                                 this.addToBot(new DrawCardAction(count));
-                            }));
+                            });
+
+                    this.isDone = true;
+                }
+
+            });
 
         }
 

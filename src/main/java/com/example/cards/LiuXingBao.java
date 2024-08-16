@@ -80,7 +80,10 @@ public class LiuXingBao extends CustomCard {
                 // for (int i = 0; i < count; i++) {
                 //     this.addToTop(new DamageAllEnemiesAction(p, 20, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 // }
-                self.damage *= 3;
+                for (int i = 0; i < self.multiDamage.length; i++) {
+                    self.multiDamage[i] *= 3;
+                }
+                // self.damage *= 3;
                 this.isDone = true;
             }
         }));
@@ -88,7 +91,7 @@ public class LiuXingBao extends CustomCard {
         this.addToBot( new AbstractGameAction() {
             public void update() {
                 for (int i = 0; i < count; i++) {
-                    this.addToBot(new DamageAllEnemiesAction(p, self.damage, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                    this.addToBot(new DamageAllEnemiesAction(p, self.multiDamage, DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
                 for (int i = 0; i < count; i++) {
                     this.addToBot(new ChannelAction(new YanZhiJing()));
@@ -112,8 +115,8 @@ public class LiuXingBao extends CustomCard {
         }
         return false;
 
-        // // EnergyPanel.totalCount: 面板的能量
-        // // p.energy.energy: 实际的能量
+        // // EnergyPanel.totalCount: 实际的当前能量
+        // // p.energy.energy: 面板的最大能量
         // if (EnergyPanel.totalCount == p.energy.energy) {
         //     return true;
         // }

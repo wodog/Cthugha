@@ -14,6 +14,7 @@ import com.example.characters.Cthugha;
 import com.example.enums.*;
 import com.example.helpers.StaticHelper;
 import com.example.relics.HuoTiHuoYan;
+import com.example.relics.HuoZhong;
 import com.example.relics.LieSiTaShuJian;
 import com.example.relics.LongXin;
 import com.example.relics.ShengLingLieYan;
@@ -48,7 +49,8 @@ import com.google.gson.Gson;
 
 @SpireInitializer
 public class Cthugha_Core
-        implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, OnStartBattleSubscriber  {
+        implements EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, EditStringsSubscriber,
+        EditKeywordsSubscriber, OnStartBattleSubscriber {
 
     public static final Logger logger = LogManager.getLogger(Cthugha_Core.class.getName());
 
@@ -85,7 +87,6 @@ public class Cthugha_Core
         BaseMod.addColor(AbstractCardEnum.MOD_NAME_COLOR, BLOOD_COLOR, BLOOD_COLOR, BLOOD_COLOR, BLOOD_COLOR,
                 BLOOD_COLOR, BLOOD_COLOR, BLOOD_COLOR, BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, ENEYGY_ORB,
                 BG_ATTACK_1024, BG_SKILL_1024, BG_POWER_1024, BIG_ORB, SMALL_ORB);
-
     }
 
     // 注解需要调用的方法，必须写
@@ -116,6 +117,7 @@ public class Cthugha_Core
         BaseMod.addRelicToCustomPool(new ShengLingLieYan(), AbstractCardEnum.MOD_NAME_COLOR);
         BaseMod.addRelicToCustomPool(new LongXin(), AbstractCardEnum.MOD_NAME_COLOR);
         BaseMod.addRelicToCustomPool(new LieSiTaShuJian(), AbstractCardEnum.MOD_NAME_COLOR);
+        BaseMod.addRelicToCustomPool(new HuoZhong(), AbstractCardEnum.MOD_NAME_COLOR);
     }
 
     @Override

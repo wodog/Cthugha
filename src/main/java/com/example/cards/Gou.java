@@ -75,8 +75,8 @@ public class Gou extends AbstractShunRanCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster();
         for (int i = 0; i < 2; i++) {
+            AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster();
             this.addToBot(new DamageAction(randomMonster, new DamageInfo(AbstractDungeon.player, this.damage)));
         }
     }

@@ -7,5 +7,5 @@ public class AbstractCardEnum {
 
 	@SpireEnum
 	public static AbstractCard.CardColor MOD_NAME_COLOR;
-	
+
 }

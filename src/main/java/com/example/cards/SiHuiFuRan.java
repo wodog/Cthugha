@@ -6,7 +6,6 @@ import com.example.helpers.ModHelper;
 import com.example.orbs.YanZhiJing;
 import com.example.power.HeiYanDaoRenPower;
 import com.example.power.SiHuiFuRanPower;
-import com.example.power.ZhuShiZhaoPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -26,7 +25,7 @@ public class SiHuiFuRan extends CustomCard {
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    private static final String IMG_PATH =  "cthughaResources/img/card/063.png";
+    private static final String IMG_PATH =  "cthughaResources/img/card/死灰复燃.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;;

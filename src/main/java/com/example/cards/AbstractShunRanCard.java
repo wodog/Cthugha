@@ -4,10 +4,12 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
 import com.example.orbs.YanZhiJing;
+import com.example.power.TianYouErRiPower;
 import com.example.relics.LieSiTaShuJian;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -32,55 +34,84 @@ public abstract class AbstractShunRanCard extends AbstractRightClickCard {
 
     @Override
     protected void onRightClick() {
+        // 能否进行瞬燃
         if (!canShunRan) {
             return;
         }
 
+        // 已经触发瞬燃的情况
         if (this.hasTag(CustomTags.Shun_Ran_Triggered)) {
             AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,
                     AbstractDungeon.player.dialogY, 3.0F, "使用过瞬燃了", true));
+            return;
         }
 
+        // 打入已触发瞬燃的标签
         if (!this.hasTag(CustomTags.Shun_Ran_Triggered) && AbstractDungeon.player != null) {
             this.tags.add(CustomTags.Shun_Ran_Triggered);
-
-            // if (AbstractDungeon.player.hand.findCardById("Burn") == null) {
-            // doShunRan(0);
-            // } else {
-            this.addToBot(
-                    new SelectCardsInHandAction(10, uiStrings.TEXT[0], true, true,
-                            card -> ModHelper.IsBurnCard(card),
-                            abstractCards -> {
-                                int count = abstractCards.size();
-
-                                // 存在 复灼伤还 的情况
-                                int fuZhuoShangHuanCount = 0;
-                                for (AbstractCard card : abstractCards) {
-                                    if (card.cardID == FuZhuoShangHuan.ID) {
-                                        if (card.magicNumber > fuZhuoShangHuanCount) {
-                                            fuZhuoShangHuanCount = card.magicNumber;
-                                        }
-                                    }
-                                }
-                                if (fuZhuoShangHuanCount != 0) {
-                                    count = fuZhuoShangHuanCount;
-                                }
-
-                                for (AbstractCard card : abstractCards) {
-                                    addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
-                                }
-
-                                if (AbstractDungeon.player.hasRelic(LieSiTaShuJian.ID)) {
-                                    if (count > 7) {
-                                        count = 7;
-                                    }
-                                }
-
-                                doShunRan(count);
-                            }));
-            // }
-
         }
+
+        // 没有灼伤牌时，触发瞬燃0
+        boolean HandsHaveBurnCard = false; // 手牌是否有灼伤牌
+        for (int i = 0; i < AbstractDungeon.player.hand.group.size(); i++) {
+            AbstractCard card = AbstractDungeon.player.hand.group.get(i);
+            if (ModHelper.IsBurnCard(card)) {
+                HandsHaveBurnCard = true;
+                break;
+            }
+        }
+        if (!HandsHaveBurnCard) {
+            this.calculateCardDamage(null);
+            this.doShunRan(0);
+            return;
+        }
+
+        // 选择瞬燃
+        this.addToBot(
+                new SelectCardsInHandAction(10, uiStrings.TEXT[0], true, true,
+                        card -> ModHelper.IsBurnCard(card),
+                        abstractCards -> {
+
+                            int count = abstractCards.size();
+
+                            // 存在卡牌 复灼伤还 的情况
+                            int fuZhuoShangHuanCount = 0;
+                            for (AbstractCard card : abstractCards) {
+                                if (card.cardID == FuZhuoShangHuan.ID) {
+                                    if (card.magicNumber > fuZhuoShangHuanCount) {
+                                        fuZhuoShangHuanCount = card.magicNumber;
+                                    }
+                                }
+                            }
+                            if (fuZhuoShangHuanCount != 0) {
+                                count = fuZhuoShangHuanCount;
+                            }
+
+                            // 存在卡牌 炤灼伤天阙 的情况
+                            for (AbstractCard card : abstractCards) {
+                                if (card.cardID == ShaoZhuoShangTianJue.ID) {
+                                    // card.use(AbstractDungeon.player, null);
+                                    card.costForTurn = 0;
+                                    AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, true));
+                                    this.addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+                                    return;
+                                }
+                            }
+
+                            // 存在遗物 书简 的情况
+                            if (AbstractDungeon.player.hasRelic(LieSiTaShuJian.ID)) {
+                                if (count > 7) {
+                                    count = 7;
+                                }
+                            }
+
+                            for (AbstractCard card : abstractCards) {
+                                this.addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
+                            }
+
+                            this.calculateCardDamage(null);
+                            this.doShunRan(count);
+                        }));
     }
 
 }

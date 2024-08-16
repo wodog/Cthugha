@@ -55,7 +55,7 @@ public class AnHongHeiYan extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         this.magicNumber = this.baseMagicNumber = 2;
-        this.cardsToPreview = (AbstractCard)new BaoLie();
+        this.cardsToPreview = (AbstractCard) new BaoLie();
     }
 
     @Override
@@ -71,18 +71,34 @@ public class AnHongHeiYan extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new MakeTempCardInHandAction(new Burn(), 1));
+        this.addToBot(new MakeTempCardInHandAction(new Burn(), this.magicNumber));
 
         {
-            AbstractCard card = new BaoLie();
-            card.exhaust = true;
-            this.addToBot(new MakeTempCardInHandAction(card));
+            this.addToBot(new AbstractGameAction() {
+                public void update() {
+                    AbstractCard tmp = AnHongHeiYan.this.cardsToPreview.makeStatEquivalentCopy();
+                    tmp.exhaust = true;
+                    tmp.rawDescription += " NL " + "消耗" + " 。";
+                    tmp.initializeDescription();
+                    p.hand.addToTop(tmp);
+                    p.hand.refreshHandLayout();
+                    this.isDone = true;
+                }
+            });
         }
 
         {
-            AbstractCard card = new BaoLie();
-            card.exhaust = true;
-            this.addToBot(new YanBaoAction(this, new MakeTempCardInHandAction(card)));
+            this.addToBot(new YanBaoAction(this, new AbstractGameAction() {
+                public void update() {
+                    AbstractCard tmp = AnHongHeiYan.this.cardsToPreview.makeStatEquivalentCopy();
+                    tmp.exhaust = true;
+                    tmp.rawDescription += " NL " + "消耗" + " 。";
+                    tmp.initializeDescription();
+                    p.hand.addToTop(tmp);
+                    p.hand.refreshHandLayout();
+                    this.isDone = true;
+                }
+            }));
         }
     }
 
