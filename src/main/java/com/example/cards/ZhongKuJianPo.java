@@ -87,9 +87,9 @@ public class ZhongKuJianPo extends CustomCard {
                 // 依次给予
                 for (int i = 0; i < count; i++) {
                     if (i % 3 == 0) {
-                        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(p, 2, false)));
+                        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 2, false)));
                     } else if (i % 3 == 1) {
-                        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(p, 2, false)));
+                        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 2, false)));
                     } else if (i % 3 == 2) {
                         this.addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, 10)));
                     }

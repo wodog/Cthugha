@@ -43,6 +43,7 @@ public class XuanShiXingTaiPower extends AbstractPower {
         this.amount = amount;
         this.updateDescription();
         this.img = new Texture("cthughaResources/img/power/205_32.png");
+        this.type = PowerType.DEBUFF;
     }
 
     public void updateDescription() {

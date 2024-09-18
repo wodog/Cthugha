@@ -7,7 +7,6 @@ import com.example.enums.AbstractCardEnum;
 import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
 import com.example.object.AbstractSpirit;
-import com.example.object.GiveFire;
 import com.example.orbs.YanZhiJing;
 import com.example.patch.SpiritField;
 import com.example.power.LossYanZhiJingPower;

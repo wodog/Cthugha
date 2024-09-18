@@ -62,6 +62,10 @@ public class LiuXingBao extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.multiDamage == null) {
+            this.calculateCardDamage(null);
+        }
+
         int effect = EnergyPanel.totalCount;
         if (this.energyOnUse != -1)
             effect = this.energyOnUse;

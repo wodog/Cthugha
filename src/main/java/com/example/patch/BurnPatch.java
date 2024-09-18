@@ -95,6 +95,11 @@ public class BurnPatch {
                         AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true,
                                 AbstractDungeon.cardRandomRng);
                         if (monster != null) {
+                            AbstractDungeon.actionManager.addToBottom(
+                                    new DamageAction(monster,
+                                            new DamageInfo(AbstractDungeon.player, _inst.magicNumber,
+                                                    DamageInfo.DamageType.THORNS),
+                                            AbstractGameAction.AttackEffect.FIRE));
                             AbstractDungeon.actionManager
                                     .addToBottom(new DecreaseMonsterMaxHealthAction(monster, _inst.magicNumber));
                         }

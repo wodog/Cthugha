@@ -75,6 +75,10 @@ public class YangYan extends AbstractShunRanCard {
 
     @Override
     protected void doShunRan(int size) {
+        if (this.multiDamage == null) {
+            this.calculateCardDamage(null);
+        }
+
         if (size >= 0) {
             this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, DamageType.NORMAL, AttackEffect.NONE));
         }

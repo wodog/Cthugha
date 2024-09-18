@@ -58,6 +58,10 @@ public class ZiBao extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.multiDamage == null) {
+            this.calculateCardDamage(null);
+        }
+
         AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "跟你爆了", true));
         
         this.addToBot(new LoseHPAction(p, p, 10));

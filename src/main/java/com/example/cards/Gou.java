@@ -10,9 +10,11 @@ import com.example.orbs.YanZhiJing;
 import com.example.power.BeiLuoShiMenXieDingPower;
 import com.example.power.HeiYanDaoRenPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -76,8 +78,8 @@ public class Gou extends AbstractShunRanCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < 2; i++) {
-            AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster();
-            this.addToBot(new DamageAction(randomMonster, new DamageInfo(AbstractDungeon.player, this.damage)));
+            this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage),
+                    AttackEffect.NONE));
         }
     }
 
@@ -93,9 +95,8 @@ public class Gou extends AbstractShunRanCard {
                 this.addToBot(new AbstractGameAction() {
                     public void update() {
                         for (int i = 0; i < 2; i++) {
-                            AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster();
-                            this.addToBot(new DamageAction(randomMonster,
-                                    new DamageInfo(AbstractDungeon.player, self.damage)));
+                            this.addToBot(new DamageRandomEnemyAction(
+                                    new DamageInfo(AbstractDungeon.player, self.damage), AttackEffect.NONE));
                         }
                         this.isDone = true;
                     }

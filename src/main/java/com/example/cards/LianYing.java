@@ -95,6 +95,7 @@ public class LianYing extends AbstractShunRanCard {
 
     @Override
     public void atTurnStart() {
+        super.atTurnStart();
         this.baseDamage = initDamage;
     }
 

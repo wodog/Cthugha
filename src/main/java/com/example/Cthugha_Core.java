@@ -116,8 +116,8 @@ public class Cthugha_Core
         BaseMod.addRelicToCustomPool(new HuoTiHuoYan(), AbstractCardEnum.MOD_NAME_COLOR);
         BaseMod.addRelicToCustomPool(new ShengLingLieYan(), AbstractCardEnum.MOD_NAME_COLOR);
         BaseMod.addRelicToCustomPool(new LongXin(), AbstractCardEnum.MOD_NAME_COLOR);
-        BaseMod.addRelicToCustomPool(new LieSiTaShuJian(), AbstractCardEnum.MOD_NAME_COLOR);
-        BaseMod.addRelicToCustomPool(new HuoZhong(), AbstractCardEnum.MOD_NAME_COLOR);
+        // BaseMod.addRelicToCustomPool(new LieSiTaShuJian(), AbstractCardEnum.MOD_NAME_COLOR);
+        // BaseMod.addRelicToCustomPool(new HuoZhong(), AbstractCardEnum.MOD_NAME_COLOR);
     }
 
     @Override

@@ -11,7 +11,7 @@
     "DESCRIPTIONS": [
       "受黑焰影响的生物失去 #b",
       " 点最大生命，并会在他们的回合开始时失去黑焰值 #b",
-      " %的生命和最大生命。"
+      "% 的生命和最大生命。"
     ]
   },
   "Cthugha:HeiYanDaoRenPower": {
@@ -59,7 +59,7 @@
     "NAME": "死灰复燃",
     "DESCRIPTIONS": [
       "每有一张 #y灼伤 被 #y消耗 时，将 #b",
-      " 张 #y灼伤 放入你的弃牌堆"
+      " 张 #y灼伤 放入你的弃牌堆。"
     ]
   },
   "Cthugha:XinSuErPower": {

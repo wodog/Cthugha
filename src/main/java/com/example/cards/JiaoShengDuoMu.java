@@ -47,6 +47,8 @@ public class JiaoShengDuoMu extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         this.magicNumber = this.baseMagicNumber = 30;
+
+        this.tags.add(CardTags.HEALING);
     }
 
     @Override

@@ -82,6 +82,11 @@ public class ChiYanHuaZhan extends CustomCard {
         this.addToBot(new AbstractGameAction() {
             public void update() {
                 for (int i = 0; i < 2; i++) {
+                    // // 超出手牌上限
+                    // if (p.hand.size() >= 10) {
+                    //     break;
+                    // }
+
                     AbstractCard tmp = HuoYanHuXi.getAttckBurn();
                     tmp.upgrade();
                     p.hand.addToTop(tmp);

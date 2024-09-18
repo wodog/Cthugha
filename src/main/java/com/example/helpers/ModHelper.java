@@ -1,5 +1,6 @@
 package com.example.helpers;
 
+import com.example.cards.Defend;
 import com.example.cards.FuZhuoShangHuan;
 import com.example.enums.CustomTags;
 import com.example.relics.LieSiTaShuJian;
@@ -29,6 +30,6 @@ public class ModHelper {
 
     // 防御牌
     public static boolean IsDefendCard(AbstractCard card) {
-        return card.cardID == "Defend_R";
+        return card.cardID == Defend.ID;
     }
 }

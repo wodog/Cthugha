@@ -35,7 +35,7 @@ public class QiSeGuBai extends CustomCard {
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    private static final String IMG_PATH = "cthughaResources/img/card/156.png";
+    private static final String IMG_PATH = "cthughaResources/img/card/其色孤白.png";
     private static final int COST = 4;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = AbstractCardEnum.MOD_NAME_COLOR;;
@@ -46,6 +46,8 @@ public class QiSeGuBai extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         this.exhaust = true;
+
+        this.tags.add(CardTags.HEALING);
     }
 
     @Override
@@ -63,10 +65,12 @@ public class QiSeGuBai extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         this.addToBot(
-                new SelectCardsInHandAction(1, "移除", false, false,
+                new SelectCardsInHandAction(1, "移除", false, true,
                         card -> ModHelper.IsBurn(card) || ModHelper.IsDefendCard(card),
                         abstractCards -> {
+                            System.out.println("5555555555555555555");
                             if (abstractCards.size() > 0) {
+                                System.out.println("55555555555555555557777");
                                 for (AbstractCard card : abstractCards) {
                                     // CardCrawlGame.sound.play("CARD_EXHAUST");
                                     AbstractDungeon.player.masterDeck.removeCard(card.cardID);

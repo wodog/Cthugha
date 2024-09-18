@@ -18,6 +18,8 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 public abstract class AbstractShunRanCard extends AbstractRightClickCard {
 
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
+
+    // 卡牌能否瞬燃
     protected boolean canShunRan = true;
 
     public AbstractShunRanCard(String arg0, String arg1, String arg2, int arg3, String arg4, CardType arg5,
@@ -28,6 +30,7 @@ public abstract class AbstractShunRanCard extends AbstractRightClickCard {
 
     protected abstract void doShunRan(int size);
 
+    // 每回合开始移除瞬燃标记
     public void atTurnStart() {
         this.tags.remove(CustomTags.Shun_Ran_Triggered);
     }
@@ -109,7 +112,7 @@ public abstract class AbstractShunRanCard extends AbstractRightClickCard {
                                 this.addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
                             }
 
-                            this.calculateCardDamage(null);
+                            // this.calculateCardDamage(null);
                             this.doShunRan(count);
                         }));
     }

@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -259,5 +260,16 @@ public class Cthugha extends CustomPlayer {
                     new DamageInfo(AbstractDungeon.player, power.amount, DamageType.THORNS), AttackEffect.NONE));
         }
 
+    }
+
+    // 碎心图片
+    @Override
+    public ArrayList<CutscenePanel> getCutscenePanels() {
+        ArrayList<CutscenePanel> panels = new ArrayList<>();
+        // 有两个参数的，第二个参数表示出现图片时播放的音效
+        panels.add(new CutscenePanel("cthughaResources/img/char/cg1.png", "ATTACK_MAGIC_FAST_1"));
+        panels.add(new CutscenePanel("cthughaResources/img/char/cg2.png"));
+        panels.add(new CutscenePanel("cthughaResources/img/char/cg3.png"));
+        return panels;
     }
 }

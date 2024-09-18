@@ -197,7 +197,7 @@
     "Cthugha:XinSuEr": {
         "NAME": "心宿二",
         "DESCRIPTION": "在你的回合开始时，获得2张 灼伤 。",
-        "UPGRADE_DESCRIPTION": "增加2张 灼伤 到你的手牌。 NL 在你的回合开始时，获得2张 灼伤 。"
+        "UPGRADE_DESCRIPTION": "获得2张 灼伤 。 NL 在你的回合开始时，获得2张 灼伤 。"
     },
     "Cthugha:ZiBao": {
         "NAME": "自爆",
@@ -236,8 +236,8 @@
     },
     "Cthugha:MingDingZhiSi": {
         "NAME": "命定之死",
-        "DESCRIPTION": "在本场战斗中有 cthugha:黑焰 状态的敌人每回合结束时失去的生命和最大生命值翻倍。 NL 抽1张牌。 消耗 。",
-        "UPGRADE_DESCRIPTION": "在本场战斗中有 cthugha:黑焰 状态的敌人每回合结束时失去的生命和最大生命值变为三倍。 NL 抽1张牌。 消耗 。"
+        "DESCRIPTION": "本场战斗 cthugha:黑焰 的结算效果翻倍。 NL 抽1张牌。 消耗 。",
+        "UPGRADE_DESCRIPTION": "本场战斗 cthugha:黑焰 的结算效果变为三倍。 NL 抽1张牌。 消耗 。"
     },
     "Cthugha:HeLuSiZhiYan": {
         "NAME": "荷鲁斯之眼",
@@ -331,8 +331,8 @@
     },
     "Cthugha:XianYi": {
         "NAME": "鲜衣",
-        "DESCRIPTION": "抽牌直到将手牌抽满。如果本回合结束时没有打出过其他牌：获得1层 无实体 。 消耗 。",
-        "UPGRADE_DESCRIPTION": "抽牌直到将手牌抽满。如果本回合结束时没有打出过其他牌：获得1层 无实体 。 cthugha:瞬燃 8：抽满手牌，获得1层无实体。 消耗 。"
+        "DESCRIPTION": "抽满手牌。 cthugha:止燎 ：获得1层 无实体 。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": "抽满手牌。 cthugha:止燎 ：获得1层 无实体 。 NL cthugha:瞬燃 8：抽满手牌，获得1层 无实体 。 NL 消耗 。"
     },
     "Cthugha:JuYan": {
         "NAME": "聚焰",
@@ -361,8 +361,8 @@
     },
     "Cthugha:AnHongHeiYan": {
         "NAME": "暗红黑炎",
-        "DESCRIPTION": "获得 !M! 张 灼伤 。 NL 打出时或 cthugha:爆炎 ：增加1张具有 消耗 的 *爆裂 到你的手牌。",
-        "UPGRADE_DESCRIPTION": "获得 !M! 张 灼伤 。 NL 打出时或 cthugha:爆炎 ：增加1张具有 消耗 的 *爆裂 到你的手牌。"
+        "DESCRIPTION": "获得 !M! 张 灼伤 。 NL 打出时或 cthugha:爆炎 ：获得1张具有 消耗 的 *爆裂 。",
+        "UPGRADE_DESCRIPTION": "获得 !M! 张 灼伤 。 NL 打出时或 cthugha:爆炎 ：获得1张具有 消耗 的 *爆裂 。"
     },
     "Cthugha:ZhuoShangDaJi": {
         "NAME": "灼伤打击",
@@ -396,13 +396,13 @@
     },
     "Cthugha:ShaoZhuoShangTianJue": {
         "NAME": "炤灼伤天阙",
-        "DESCRIPTION": "获得 !B! 点 格挡 。以此牌 cthugha:瞬燃 时改为“ cthugha:瞬燃 1：这张牌不 消耗 并从手牌中打出， 消耗 使用 cthugha:瞬燃 的那张牌。”",
-        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。以此牌 cthugha:瞬燃 时改为“ cthugha:瞬燃 1：这张牌不 消耗 并从手牌中打出， 消耗 使用 cthugha:瞬燃 的那张牌。”"
+        "DESCRIPTION": "获得 !B! 点 格挡 。以此牌 cthugha:瞬燃 时只会将其从手牌中打出并 消耗 使用 cthugha:瞬燃 的那张牌。",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。以此牌 cthugha:瞬燃 时只会将其从手牌中打出并 消耗 使用 cthugha:瞬燃 的那张牌。"
     },
     "Cthugha:ChiYanHuaZhan": {
         "NAME": "炽焰华斩",
-        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得力量直到不少于 !M! 点。获得2张变化为攻击牌的 灼伤 +。",
-        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得力量直到不少于 !M! 点。获得2张变化为攻击牌的 灼伤 +。"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 力量 直到不少于 !M! 点。获得2张变化为攻击牌的 *灼伤+ 。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 力量 直到不少于 !M! 点。获得2张变化为攻击牌的 *灼伤+ 。"
     }
     
     

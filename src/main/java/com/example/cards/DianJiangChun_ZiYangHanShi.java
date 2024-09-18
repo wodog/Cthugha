@@ -70,6 +70,7 @@ public class DianJiangChun_ZiYangHanShi extends CustomCard {
         if (actualEffect > 0) {
 
             DianJiangChun_ZiYangHanShi self = this;
+
             this.addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
@@ -80,7 +81,7 @@ public class DianJiangChun_ZiYangHanShi extends CustomCard {
                         return;
                     }
 
-                    new SelectCardsInHandAction(actualEffect, "丢弃", false, false,
+                    this.addToBot(new SelectCardsInHandAction(actualEffect, "丢弃", false, false,
                             card -> true,
                             abstractCards -> {
                                 int count = actualEffect;
@@ -96,11 +97,9 @@ public class DianJiangChun_ZiYangHanShi extends CustomCard {
                                     int n = (int) burnCount / 2;
                                     count = count + self.magicNumber * n;
                                 }
-
                                 this.addToBot(new GainEnergyAction(count));
                                 this.addToBot(new DrawCardAction(count));
-                            });
-
+                            }));
                     this.isDone = true;
                 }
 

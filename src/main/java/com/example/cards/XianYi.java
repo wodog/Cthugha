@@ -1,6 +1,7 @@
 package com.example.cards;
 
 import com.example.actions.EachBurnAction;
+import com.example.actions.ZhiLiaoAction;
 import com.example.enums.AbstractCardEnum;
 import com.example.helpers.ModHelper;
 import com.example.orbs.YanZhiJing;
@@ -22,7 +23,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.abstracts.CustomCard;
 
@@ -73,7 +76,22 @@ public class XianYi extends AbstractShunRanCard {
             }
         });
 
-        this.addToBot(new ApplyPowerAction(p, p, new XianYiPower(p, 1)));
+        this.addToBot(new ZhiLiaoAction(this, new AbstractGameAction() {
+            public void update() {
+                // this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
+
+                // if (m.hasPower(StrengthPower.POWER_ID)) {
+                //     AbstractPower strengthPower = m.getPower(StrengthPower.POWER_ID);
+                //     if (strengthPower.amount >= magicNumber) {
+                //         this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -3), -3));
+                //     }
+                // }
+                this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1)));
+                this.isDone = true;
+            }
+        }));
+
+        // this.addToBot(new ApplyPowerAction(p, p, new XianYiPower(p, 1)));
 
     }
 

@@ -7,7 +7,9 @@ import com.example.actions.EachBurnAction;
 import com.example.actions.RetainBurnAction;
 import com.example.enums.CustomTags;
 import com.example.helpers.ModHelper;
+import com.example.object.AbstractSpirit;
 import com.example.orbs.YanZhiJing;
+import com.example.patch.SpiritField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -21,6 +23,7 @@ import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -51,11 +54,11 @@ public class XuanCaoQiYanPower extends AbstractPower {
     }
 
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        if (isPlayer && !AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
+        if (isPlayer && !AbstractDungeon.player.hand.isEmpty()) {
 
-                // addToBot((AbstractGameAction) new RetainBurnAction(this.owner, this.amount));
+            // addToBot((AbstractGameAction) new RetainBurnAction(this.owner, this.amount));
 
-                this.addToBot(
+            this.addToBot(
                     new SelectCardsInHandAction(this.amount, uiStrings.TEXT[0], true, true,
                             card -> (ModHelper.IsBurn(card)),
                             abstractCards -> {
@@ -66,32 +69,34 @@ public class XuanCaoQiYanPower extends AbstractPower {
                                         this.addToBot(new AbstractGameAction() {
                                             public void update() {
                                                 card.dontTriggerOnUseCard = true;
+                                                AbstractSpirit spirit = SpiritField.spirit.get(card);
+                                                if (spirit != null) {
+                                                    spirit.onUse();
+                                                }
                                                 card.use(null, null);
                                                 card.dontTriggerOnUseCard = false;
-                                               
+
                                                 this.isDone = true;
                                             }
                                         });
                                     }
                                 }
 
+                                // 让未保留的灼伤正常触发
                                 this.addToBot(new AbstractGameAction() {
                                     public void update() {
                                         for (AbstractCard card : AbstractDungeon.player.hand.group) {
                                             if (ModHelper.IsBurn(card) && !card.retain) {
-                                                card.dontTriggerOnUseCard = true;
-                                                card.use(null, null);
-                                                card.dontTriggerOnUseCard = false;
+                                                AbstractDungeon.actionManager.cardQueue
+                                                        .add(new CardQueueItem(card, true));
                                             }
                                         }
-                                        
+
                                         this.isDone = true;
                                     }
                                 });
 
-                            }
-                    )
-                );
+                            }));
         }
     }
 
